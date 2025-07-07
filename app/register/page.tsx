@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '@/firebase/config';
+import { useAuth } from '@/context/AuthContext';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -12,35 +11,43 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { signUp } = useAuth();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setIsLoading(true);
+    
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
+      setIsLoading(false);
       return;
     }
+    
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signUp(email, password);
       router.push('/');
-    } catch (error: unknown) {
-      const firebaseError = error as { code?: string };
-      if (firebaseError.code === 'auth/email-already-in-use') {
-        setError('This email address is already in use.');
-      } else {
-        setError('Failed to create an account. Please try again.');
-      }
+    } catch {
+      setError('Failed to create an account. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
+    setError(null);
+    setIsLoading(true);
+    
     try {
-      await signInWithPopup(auth, provider);
+      // Mock Google sign in
+      await signUp('demo@google.com', 'google-mock');
       router.push('/');
     } catch {
       setError('Failed to sign in with Google. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,7 +66,8 @@ const RegisterPage = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+          disabled={isLoading}
+          className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
         >
            <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
@@ -67,7 +75,7 @@ const RegisterPage = () => {
             <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238c-2.008 1.32-4.402 2.108-7.219 2.108-5.22 0-9.643-3.483-11.219-8.16l-6.258 5.34C6.398 37.333 14.597 44 24 44z" />
             <path fill="#1976D2" d="M43.611 20.083H24v8h11.303c-.792 2.237-2.231 4.14-4.243 5.535l6.19 5.238C42.018 35.837 44 30.137 44 24c0-1.341-.138-2.65-.389-3.917z" />
           </svg>
-          Continue with Google
+          {isLoading ? 'Creating account...' : 'Continue with Google'}
         </button>
 
         <div className="flex items-center justify-center">
@@ -85,11 +93,12 @@ const RegisterPage = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              disabled={isLoading}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:opacity-50"
             />
           </div>
           <div>
-            <label htmlFor="password"className="text-sm font-medium text-gray-700">Password</label>
+            <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
             <div className="mt-1 relative">
               <input
                 id="password"
@@ -97,38 +106,53 @@ const RegisterPage = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                disabled={isLoading}
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:opacity-50"
               />
                <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm font-medium text-blue-600 hover:text-blue-500"
+                disabled={isLoading}
+                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm font-medium text-blue-600 hover:text-blue-500 disabled:opacity-50"
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
           </div>
            <div>
-            <label htmlFor="confirm-password"className="text-sm font-medium text-gray-700">Confirm Password</label>
+            <label htmlFor="confirm-password" className="text-sm font-medium text-gray-700">Confirm Password</label>
             <input
               id="confirm-password"
               type="password"
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              disabled={isLoading}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:opacity-50"
             />
           </div>
 
-          {error && <p className="text-sm text-red-600 text-center">{error}</p>}
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-md p-3">
+              <p className="text-sm text-red-600 text-center">{error}</p>
+            </div>
+          )}
 
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            disabled={isLoading}
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Register
+            {isLoading ? 'Creating account...' : 'Register'}
           </button>
         </form>
+
+        {/* Demo Credentials Info */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-md">
+          <p className="text-xs text-gray-600 text-center">
+            <strong>Demo Mode:</strong> Any email/password combination will work for testing
+          </p>
+        </div>
       </div>
     </div>
   );
