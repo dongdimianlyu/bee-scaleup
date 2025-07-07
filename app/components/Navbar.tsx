@@ -1,0 +1,25 @@
+import Link from 'next/link';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+const Navbar = ({ navLinks }: { navLinks: NavLink[] }) => {
+  return (
+    <nav className="hidden lg:flex space-x-8">
+      {navLinks.map((link) => (
+        <Link 
+          key={link.href} 
+          href={link.href} 
+          className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 relative group"
+        >
+          {link.label}
+          <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </Link>
+      ))}
+    </nav>
+  );
+};
+
+export default Navbar; 
