@@ -16,6 +16,47 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Prize Pool Section */}
+      <section className="py-16 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8">
+              <span className="text-8xl">🏆</span>
+            </div>
+            <h2 className="text-6xl font-bold mb-4 drop-shadow-lg">Prize Pool</h2>
+            <div className="text-8xl font-extrabold mb-6 drop-shadow-xl">
+              RM 3,000
+            </div>
+            <p className="text-2xl mb-8 font-semibold opacity-90">
+              Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+                <div className="text-4xl mb-3">🥇</div>
+                <h3 className="text-xl font-bold mb-2">1st Place</h3>
+                <p className="text-lg font-semibold">RM 1,500</p>
+              </div>
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+                <div className="text-4xl mb-3">🥈</div>
+                <h3 className="text-xl font-bold mb-2">2nd Place</h3>
+                <p className="text-lg font-semibold">RM 1,000</p>
+              </div>
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+                <div className="text-4xl mb-3">🥉</div>
+                <h3 className="text-xl font-bold mb-2">3rd Place</h3>
+                <p className="text-lg font-semibold">RM 500</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-x-32 -translate-y-32"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full translate-x-48 translate-y-48"></div>
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-10 rounded-full transform -translate-y-1/2"></div>
+        <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-white opacity-5 rounded-full"></div>
+      </section>
+
       {/* Info Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">

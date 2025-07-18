@@ -34,8 +34,22 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-        <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
-          BEE SCALE-UP
+        <Link href="/" className="flex items-center ml-2 transition-all duration-300 hover:opacity-80">
+          <img 
+            src="/bee-scale-logo.png" 
+            alt="Bee Scale Logo" 
+            className="h-12 w-auto"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+              if (fallback) {
+                fallback.style.display = 'block';
+              }
+            }}
+          />
+          <span className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 hidden">
+            BEE SCALE-UP
+          </span>
         </Link>
         <div className="hidden lg:flex items-center space-x-8">
           <Navbar navLinks={navLinks} />
@@ -47,7 +61,7 @@ const Header = () => {
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
                   className="flex items-center space-x-2 px-4 py-2 rounded-full text-gray-700 hover:bg-gray-50 transition-all duration-200"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     {user.displayName?.[0]?.toUpperCase() || user.email[0].toUpperCase()}
                   </div>
                   <span className="text-sm font-medium">{user.displayName || user.email}</span>
@@ -79,7 +93,7 @@ const Header = () => {
                     href={link.href} 
                     className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
                       link.label === 'Register' 
-                        ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white hover:from-yellow-600 hover:to-orange-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1' 
+                        ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white hover:from-yellow-600 hover:to-yellow-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1' 
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                     }`}
                   >
@@ -144,7 +158,7 @@ const Header = () => {
                   href={link.href} 
                   className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                     link.label === 'Register' 
-                      ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-center' 
+                      ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-center' 
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                   onClick={() => setIsOpen(false)}
