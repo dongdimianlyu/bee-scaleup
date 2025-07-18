@@ -32,17 +32,17 @@ const Home = () => {
               Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
                 <div className="text-4xl mb-3">🥇</div>
                 <h3 className="text-xl font-bold mb-2">1st Place</h3>
                 <p className="text-lg font-semibold">RM 1,500</p>
               </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
                 <div className="text-4xl mb-3">🥈</div>
                 <h3 className="text-xl font-bold mb-2">2nd Place</h3>
                 <p className="text-lg font-semibold">RM 1,000</p>
               </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
                 <div className="text-4xl mb-3">🥉</div>
                 <h3 className="text-xl font-bold mb-2">3rd Place</h3>
                 <p className="text-lg font-semibold">RM 500</p>
