@@ -20,11 +20,11 @@ const AboutUsPage = () => {
               <h2 className="text-3xl font-bold mb-6 text-black">BEE-Business Club</h2>
               <div className="space-y-6 text-gray-800 text-lg leading-relaxed">
                 <p>
-                  BEE-Business Club is dedicated to empowering the next generation of business leaders in Penang and beyond by bridging the gap between theoretical learning and practical application. We organize the BEE "SCALE-UP" Competition—a dynamic platform where high school, university, and professional students collaborate to solve real-world challenges faced by local businesses.
+                  BEE-Business Club is dedicated to empowering the next generation of business leaders in Penang and beyond by bridging the gap between theoretical learning and practical application. We organize the BEE &ldquo;SCALE-UP&rdquo; Competition—a dynamic platform where high school, university, and professional students collaborate to solve real-world challenges faced by local businesses.
                 </p>
                 
                 <p>
-                  Our mission is to foster innovation, adaptability, and sustainability while developing critical business and STEM skills. By providing equal access to resources, mentorship, and educational opportunities—especially for the B40 community—we champion educational equity and professional growth. Our initiatives are aligned with Penang 2030's vision for holistic, innovation-driven development, encouraging participants to create impactful, sustainable solutions that drive local economic progress.
+                  Our mission is to foster innovation, adaptability, and sustainability while developing critical business and STEM skills. By providing equal access to resources, mentorship, and educational opportunities—especially for the B40 community—we champion educational equity and professional growth. Our initiatives are aligned with Penang 2030&apos;s vision for holistic, innovation-driven development, encouraging participants to create impactful, sustainable solutions that drive local economic progress.
                 </p>
                 
                 <p>
@@ -37,7 +37,7 @@ const AboutUsPage = () => {
             <div className="bg-yellow-50 border-l-4 border-yellow-500 p-8 rounded-r-lg">
               <h3 className="text-2xl font-bold mb-4 text-black">Short Website Bio</h3>
               <p className="text-gray-800 text-lg leading-relaxed">
-                BEE-Business Club empowers future leaders through the BEE "SCALE-UP" Competition, where students co-create innovative solutions for real Penang businesses. Driven by a commitment to educational equity and local impact, we connect youth with experts, offer transformative learning experiences, and support sustainable growth for both participants and the community.
+                BEE-Business Club empowers future leaders through the BEE &ldquo;SCALE-UP&rdquo; Competition, where students co-create innovative solutions for real Penang businesses. Driven by a commitment to educational equity and local impact, we connect youth with experts, offer transformative learning experiences, and support sustainable growth for both participants and the community.
               </p>
             </div>
 
