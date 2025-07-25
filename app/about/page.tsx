@@ -9,7 +9,7 @@ const AboutPage = () => {
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             BEE SCALE-UP is a transformative 7-month business case competition designed to empower students aged 13–22, 
-            with a special focus on Malaysia's B40 communities, through real-world business problem-solving.
+            with a special focus on Malaysia&apos;s B40 communities, through real-world business problem-solving.
           </p>
         </div>
 

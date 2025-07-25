@@ -14,7 +14,7 @@ const FundPage = () => {
         <div className="bg-white rounded-2xl shadow-card p-8 border border-slate-100">
           <p className="text-slate-600 text-lg leading-relaxed">
             Information about funding opportunities and sponsorship details will be available here soon.
-            Join us in making a difference in students' lives across Malaysia and beyond.
+            Join us in making a difference in students&apos; lives across Malaysia and beyond.
           </p>
         </div>
       </div>
