@@ -18,12 +18,6 @@ const Home = () => {
     }
   };
 
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5 }
-  };
-
   return (
     <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
@@ -117,7 +111,9 @@ const Home = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
             >
               <Link 
-                href="/register" 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc-rS-QJrmAuiAEQjhkV2pzBuV26mRMy2GPFjHR8jXq89Yf8Q/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
               >
                 <span>Register Now</span>
@@ -131,7 +127,7 @@ const Home = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </motion.svg>
-          </Link>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -160,10 +156,10 @@ const Home = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        {/* Subtle background elements */}
+        {/* Enhanced background elements */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full"
+            className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full"
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 180, 360],
@@ -173,10 +169,10 @@ const Home = () => {
               repeat: Infinity,
               ease: "linear"
             }}
-            style={{ transform: 'translate(50%, -50%)' }}
+            style={{ transform: 'translate(40%, -40%)' }}
           />
           <motion.div
-            className="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-3 rounded-full"
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/3 rounded-full"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [360, 180, 0],
@@ -186,13 +182,39 @@ const Home = () => {
               repeat: Infinity,
               ease: "linear"
             }}
-            style={{ transform: 'translate(-50%, 50%)' }}
+            style={{ transform: 'translate(-40%, 40%)' }}
+          />
+          {/* Additional floating elements */}
+          <motion.div
+            className="absolute top-1/3 left-1/5 w-32 h-32 bg-white/10 rounded-full"
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-white/8 rounded-full"
+            animate={{
+              y: [0, 15, 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
           />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
-            className="max-w-6xl mx-auto"
+            className="max-w-7xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -200,113 +222,178 @@ const Home = () => {
           >
             {/* Section Header */}
             <motion.div 
-              className="text-center mb-16"
+              className="text-center mb-20"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
               <motion.div
-                className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl mb-6"
-                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl mb-8 shadow-xl"
+                whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-4xl">🏆</span>
+                <span className="text-5xl">🏆</span>
               </motion.div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
                 Prize Pool
               </h2>
-              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                 Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
               </p>
             </motion.div>
 
-            {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Main Content - Flowing Layout */}
+            <div className="grid lg:grid-cols-5 gap-8 items-start">
               
-              {/* Left Side - Prize Positions */}
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
+              {/* Left Side - Prize Positions (3 columns) */}
+              <div className="lg:col-span-3 space-y-6">
                 {[
-                  { place: "1st Place", prize: "RM 1,500", emoji: "🥇", gradient: "from-yellow-400 to-orange-500" },
-                  { place: "2nd Place", prize: "RM 1,000", emoji: "🥈", gradient: "from-slate-300 to-slate-500" },
-                  { place: "3rd Place", prize: "RM 500", emoji: "🥉", gradient: "from-amber-600 to-amber-800" }
+                  { place: "1st Place", prize: "RM 1,500", emoji: "🥇", gradient: "from-yellow-400/20 to-orange-500/20", border: "border-yellow-400/30" },
+                  { place: "2nd Place", prize: "RM 1,000", emoji: "🥈", gradient: "from-slate-300/20 to-slate-500/20", border: "border-slate-300/30" },
+                  { place: "3rd Place", prize: "RM 500", emoji: "🥉", gradient: "from-amber-600/20 to-amber-800/20", border: "border-amber-600/30" }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    className={`relative group overflow-hidden`}
+                    initial={{ opacity: 0, x: -50, scale: 0.9 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 + index * 0.15 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.03, y: -8 }}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <div className="text-4xl">{item.emoji}</div>
-                        <div>
-                          <h3 className="text-xl font-bold text-white">{item.place}</h3>
-                          <p className="text-white/70 text-sm">Winner</p>
+                    {/* Flowing background with gradient */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} rounded-3xl transform rotate-1 group-hover:rotate-0 transition-all duration-500`}></div>
+                    <div className={`relative bg-white/15 backdrop-blur-xl rounded-3xl p-8 border ${item.border} group-hover:bg-white/20 transition-all duration-500 shadow-2xl`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-6">
+                          <motion.div 
+                            className="text-6xl"
+                            whileHover={{ scale: 1.2, rotate: 10 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {item.emoji}
+                          </motion.div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-white mb-2">{item.place}</h3>
+                            <p className="text-white/70 text-lg">Winner</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-2xl font-bold text-white">{item.prize}</p>
-                        <p className="text-white/70 text-sm">Cash Prize</p>
+                        <div className="text-right">
+                          <motion.p 
+                            className="text-3xl font-bold text-white"
+                            initial={{ scale: 0.8 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            {item.prize}
+                          </motion.p>
+                          <p className="text-white/70 text-lg">Cash Prize</p>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
 
-              {/* Right Side - Total Prize Amount */}
+              {/* Right Side - Total Prize Amount (2 columns) */}
               <motion.div
-                className="text-center lg:text-left"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                className="lg:col-span-2"
+                initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    Total Prize Pool
-                  </h3>
-                  
+                {/* Main prize card with flowing design */}
+                <motion.div
+                  className="relative group"
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Glowing background layers */}
                   <motion.div
-                    className="mb-6"
-                    initial={{ scale: 0.9 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-6xl md:text-7xl font-bold text-white leading-none">
-                      RM 3,000
-                    </div>
-                  </motion.div>
+                    className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-white/5 rounded-[2rem] blur-sm transform -rotate-1"
+                    animate={{
+                      rotate: [-1, 1, -1],
+                      scale: [1, 1.02, 1],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20 rounded-[2rem] blur-md"></div>
+                  
+                  <div className="relative bg-white/15 backdrop-blur-xl rounded-[2rem] p-10 border border-white/20 shadow-2xl">
+                    {/* Floating elements inside card */}
+                    <motion.div
+                      className="absolute top-6 right-6 w-16 h-16 bg-white/10 rounded-full"
+                      animate={{
+                        rotate: [0, 360],
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                    />
+                    
+                    <div className="text-center relative z-10">
+                      <motion.h3 
+                        className="text-2xl font-bold text-white mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        viewport={{ once: true }}
+                      >
+                        Total Prize Pool
+                      </motion.h3>
+                      
+                      <motion.div
+                        className="mb-10"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1, delay: 1, type: "spring", bounce: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="text-6xl md:text-7xl font-black text-white leading-none drop-shadow-2xl">
+                          RM 3,000
+                        </div>
+                      </motion.div>
 
-                  <div className="space-y-3 text-white/90">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span>Cash Prizes</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span>Mentorship Opportunities</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span>Internship Placements</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                      <span>Professional Certificates</span>
+                      <motion.div 
+                        className="space-y-4"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1.2 }}
+                        viewport={{ once: true }}
+                      >
+                        {[
+                          { icon: "💰", label: "Cash Prizes", color: "bg-green-400" },
+                          { icon: "🎯", label: "Mentorship Opportunities", color: "bg-blue-400" },
+                          { icon: "🚀", label: "Internship Placements", color: "bg-purple-400" },
+                          { icon: "🏅", label: "Professional Certificates", color: "bg-yellow-400" }
+                        ].map((benefit, index) => (
+                          <motion.div 
+                            key={index}
+                            className="flex items-center space-x-4 text-white/90"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.05, x: 5 }}
+                          >
+                            <div className={`w-3 h-3 ${benefit.color} rounded-full shadow-lg`}></div>
+                            <span className="text-lg">{benefit.label}</span>
+                          </motion.div>
+                        ))}
+                      </motion.div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>
@@ -552,7 +639,7 @@ const Home = () => {
             {[
               { q: "Who can join?", a: "Any student aged 13–22, especially from Malaysia's B40 communities." },
               { q: "What is the submission language?", a: "English (no penalty for second-language learners)." },
-              { q: "How do I register?", a: "Click the Register button above or visit the Registration section." },
+              { q: "How do I register?", a: "Click the Register Now button to access our registration form." },
               { q: "What are the prizes?", a: "RM2000–3000 prize pool, mentorship, internships, and certificates." },
               { q: "Can I join solo?", a: "Yes! Use our team finder to connect with others." },
               { q: "Do I need business experience?", a: "No prior experience needed—just curiosity and drive!" }
