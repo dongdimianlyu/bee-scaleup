@@ -1,231 +1,611 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Home = () => {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5 }
+  };
+
   return (
-    <div className="bg-white">
+    <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
-      <section className="text-center py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4 text-gray-900">BEE SCALE-UP Competition</h1>
-          <p className="text-xl text-gray-700 mb-8">
-            Empowering students to solve real business problems and drive impact in Malaysia and beyond.
-          </p>
-          <Link href="/register" className="bg-yellow-500 text-white font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300">
-            Register Now
-          </Link>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-10 animate-float"
+            animate={{
+              rotate: 360,
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+              scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600 rounded-full opacity-5 animate-float"
+            animate={{
+              rotate: -360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+              scale: { duration: 10, repeat: Infinity, ease: "easeInOut" }
+            }}
+          />
+          <motion.div
+            className="absolute top-1/3 left-1/4 w-4 h-4 bg-blue-400 rounded-full opacity-20"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute top-2/3 right-1/3 w-3 h-3 bg-blue-300 rounded-full opacity-30"
+            animate={{
+              y: [0, -15, 0],
+              x: [0, -8, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
         </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1 
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient leading-tight"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            >
+              BEE SCALE-UP
+              <motion.span 
+                className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 font-medium mt-2"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+              >
+                Competition
+              </motion.span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+            >
+            Empowering students to solve real business problems and drive impact in Malaysia and beyond.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
+            >
+              <Link 
+                href="/register" 
+                className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+              >
+                <span>Register Now</span>
+                <motion.svg
+                  className="ml-2 w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </motion.svg>
+          </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center">
+            <motion.div
+              className="w-1 h-3 bg-blue-400 rounded-full mt-2"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* Prize Pool Section */}
-      <section className="py-16 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <span className="text-8xl">🏆</span>
-            </div>
-            <h2 className="text-6xl font-bold mb-4 drop-shadow-lg">Prize Pool</h2>
-            <div className="text-8xl font-extrabold mb-6 drop-shadow-xl">
-              RM 3,000
-            </div>
-            <p className="text-2xl mb-8 font-semibold opacity-90">
-              Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
-                <div className="text-4xl mb-3">🥇</div>
-                <h3 className="text-xl font-bold mb-2">1st Place</h3>
-                <p className="text-lg font-semibold">RM 1,500</p>
-              </div>
-              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
-                <div className="text-4xl mb-3">🥈</div>
-                <h3 className="text-xl font-bold mb-2">2nd Place</h3>
-                <p className="text-lg font-semibold">RM 1,000</p>
-              </div>
-              <div className="bg-regal-blue bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
-                <div className="text-4xl mb-3">🥉</div>
-                <h3 className="text-xl font-bold mb-2">3rd Place</h3>
-                <p className="text-lg font-semibold">RM 500</p>
-              </div>
-            </div>
-          </div>
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {/* Subtle background elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full"
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{ transform: 'translate(50%, -50%)' }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-3 rounded-full"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [360, 180, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{ transform: 'translate(-50%, 50%)' }}
+          />
         </div>
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-x-32 -translate-y-32"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full translate-x-48 translate-y-48"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-10 rounded-full transform -translate-y-1/2"></div>
-        <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-white opacity-5 rounded-full"></div>
-      </section>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div 
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Section Header */}
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl mb-6"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <span className="text-4xl">🏆</span>
+              </motion.div>
+              <h2 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+                Prize Pool
+              </h2>
+              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
+              </p>
+            </motion.div>
+
+            {/* Main Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Left Side - Prize Positions */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                {[
+                  { place: "1st Place", prize: "RM 1,500", emoji: "🥇", gradient: "from-yellow-400 to-orange-500" },
+                  { place: "2nd Place", prize: "RM 1,000", emoji: "🥈", gradient: "from-slate-300 to-slate-500" },
+                  { place: "3rd Place", prize: "RM 500", emoji: "🥉", gradient: "from-amber-600 to-amber-800" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="text-4xl">{item.emoji}</div>
+                        <div>
+                          <h3 className="text-xl font-bold text-white">{item.place}</h3>
+                          <p className="text-white/70 text-sm">Winner</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-white">{item.prize}</p>
+                        <p className="text-white/70 text-sm">Cash Prize</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Right Side - Total Prize Amount */}
+              <motion.div
+                className="text-center lg:text-left"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Total Prize Pool
+                  </h3>
+                  
+                  <motion.div
+                    className="mb-6"
+                    initial={{ scale: 0.9 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-6xl md:text-7xl font-bold text-white leading-none">
+                      RM 3,000
+                    </div>
+                  </motion.div>
+
+                  <div className="space-y-3 text-white/90">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span>Cash Prizes</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                      <span>Mentorship Opportunities</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <span>Internship Placements</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                      <span>Professional Certificates</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* Info Section */}
-      <section className="py-20">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-slate-50 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
-            <div className="p-6">
-              <span className="text-4xl">🚀</span>
-              <h3 className="font-bold text-xl my-2 text-gray-900">Who?</h3>
-              <p className="text-gray-700">Students ages 13–22, especially from Malaysia&apos;s B40 communities. 100–700 participants expected.</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">📅</span>
-              <h3 className="font-bold text-xl my-2 text-gray-900">When?</h3>
-              <p className="text-gray-700">7 months: Registration opens April 2025. Prelims: Sept 10. Finals: Nov 10.</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">🏆</span>
-              <h3 className="font-bold text-xl my-2 text-gray-900">Why?</h3>
-              <p className="text-gray-700">RM2000–3000 prize pool, mentorship, internships, certificates, and real-world impact.</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">🌏</span>
-              <h3 className="font-bold text-xl my-2 text-gray-900">Where?</h3>
-              <p className="text-gray-700">Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners).</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">💡</span>
-              <h3 className="font-bold text-xl my-2 text-gray-900">What?</h3>
-              <p className="text-gray-700">Teams solve real business cases for Penang-based SMEs, focusing on finance, marketing, and tech.</p>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {[
+              { emoji: "🚀", title: "Who?", text: "Students ages 13–22, especially from Malaysia's B40 communities. 100–700 participants expected." },
+              { emoji: "📅", title: "When?", text: "7 months: Registration opens April 2025. Prelims: Sept 10. Finals: Nov 10." },
+              { emoji: "🏆", title: "Why?", text: "RM2000–3000 prize pool, mentorship, internships, certificates, and real-world impact." },
+              { emoji: "🌏", title: "Where?", text: "Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners)." },
+              { emoji: "💡", title: "What?", text: "Teams solve real business cases for Penang-based SMEs, focusing on finance, marketing, and tech." }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 text-center group hover:transform hover:scale-105 border border-slate-100"
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+              >
+                <motion.span 
+                  className="text-5xl block mb-6"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.emoji}
+                </motion.span>
+                <h3 className="font-bold text-2xl mb-4 text-slate-900">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-blue-50 via-slate-50 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-10 text-gray-900">Benefits</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-700">
-            <div className="p-6">🤝 Professional & peer mentorship</div>
-            <div className="p-6">📈 Financial literacy & STEM workshops</div>
-            <div className="p-6">🎓 Internship opportunities</div>
-            <div className="p-6">📜 Certificates for all participants</div>
-            <div className="p-6">💬 Team finder & networking</div>
-            <div className="p-6">🌱 Real-world business impact</div>
-          </div>
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-16 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Benefits
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {[
+              "🤝 Professional & peer mentorship",
+              "📈 Financial literacy & STEM workshops", 
+              "🎓 Internship opportunities",
+              "📜 Certificates for all participants",
+              "💬 Team finder & networking",
+              "🌱 Real-world business impact"
+            ].map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 text-lg font-medium text-slate-700 hover:transform hover:scale-105 border border-slate-100"
+                variants={fadeInUp}
+                whileHover={{ y: -5 }}
+              >
+                {benefit}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Timeline Section */}
-      <section className="py-20">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-slate-100 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-12 text-gray-900">Timeline</h2>
-          <div className="relative">
-            <div className="border-l-2 border-yellow-500 absolute h-full top-0 left-1/2 -translate-x-1/2"></div>
-            <div className="mb-8 flex justify-between items-center w-full">
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-20 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Timeline
+          </motion.h2>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Central line */}
+            <motion.div 
+              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+              style={{ top: 0, bottom: 0 }}
+            />
+            
+            {[
+              { date: "April 2025", event: "Registration Opens", side: "left" },
+              { date: "May–Aug", event: "Mentorship & Workshops", side: "right" },
+              { date: "Sept 10", event: "Prelims", side: "left" },
+              { date: "Oct", event: "Finalist Mentorship", side: "right" },
+              { date: "Nov 10", event: "Finals", side: "left" }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className={`mb-12 flex justify-between items-center w-full ${item.side === 'right' ? 'flex-row-reverse' : ''}`}
+                initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
               <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center order-1 bg-yellow-500 shadow-xl w-8 h-8 rounded-full"></div>
-              <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-                <h3 className="font-bold text-gray-800 text-xl">April 2025</h3>
-                <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Registration Opens</p>
-              </div>
-            </div>
-            <div className="mb-8 flex justify-between flex-row-reverse items-center w-full">
-              <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center order-1 bg-yellow-500 shadow-xl w-8 h-8 rounded-full"></div>
-              <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-                <h3 className="font-bold text-gray-800 text-xl">May–Aug</h3>
-                <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Mentorship & Workshops</p>
-              </div>
-            </div>
-            <div className="mb-8 flex justify-between items-center w-full">
-              <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center order-1 bg-yellow-500 shadow-xl w-8 h-8 rounded-full"></div>
-              <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-                <h3 className="font-bold text-gray-800 text-xl">Sept 10</h3>
-                <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Prelims</p>
-              </div>
-            </div>
-            <div className="mb-8 flex justify-between flex-row-reverse items-center w-full">
-              <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center order-1 bg-yellow-500 shadow-xl w-8 h-8 rounded-full"></div>
-              <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-                <h3 className="font-bold text-gray-800 text-xl">Oct</h3>
-                <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Finalist Mentorship</p>
-              </div>
-            </div>
-            <div className="mb-8 flex justify-between items-center w-full">
-              <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center order-1 bg-yellow-500 shadow-xl w-8 h-8 rounded-full"></div>
-              <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-                <h3 className="font-bold text-gray-800 text-xl">Nov 10</h3>
-                <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Finals</p>
-              </div>
-            </div>
+                <motion.div 
+                  className="z-20 flex items-center justify-center order-1 bg-gradient-to-r from-blue-500 to-blue-600 shadow-xl w-12 h-12 rounded-full"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.2 }}
+                >
+                  <div className="w-4 h-4 bg-white rounded-full"></div>
+                </motion.div>
+                <motion.div 
+                  className="order-1 bg-white rounded-2xl shadow-card hover:shadow-glow w-5/12 px-8 py-6 text-left border border-slate-100"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="font-bold text-slate-800 text-xl mb-2">{item.date}</h3>
+                  <p className="text-slate-600 font-medium">{item.event}</p>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-gray-50">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-10 text-gray-900">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="p-6">
-              <span className="text-4xl">📝</span>
-              <h4 className="font-bold my-2 text-gray-900">1. Register</h4>
-              <p className="text-gray-700">Sign up solo or with a team. Use our team finder if needed!</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">📚</span>
-              <h4 className="font-bold my-2 text-gray-900">2. Prepare</h4>
-              <p className="text-gray-700">Access study resources, attend workshops, and meet your mentors.</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">💼</span>
-              <h4 className="font-bold my-2 text-gray-900">3. Solve Cases</h4>
-              <p className="text-gray-700">Work on real business problems for Penang SMEs.</p>
-            </div>
-            <div className="p-6">
-              <span className="text-4xl">🚩</span>
-              <h4 className="font-bold my-2 text-gray-900">4. Compete</h4>
-              <p className="text-gray-700">Submit your plans, present in prelims and finals, and win prizes!</p>
-            </div>
-          </div>
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-16 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            How It Works
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {[
+              { emoji: "📝", step: "1. Register", text: "Sign up solo or with a team. Use our team finder if needed!" },
+              { emoji: "📚", step: "2. Prepare", text: "Access study resources, attend workshops, and meet your mentors." },
+              { emoji: "💼", step: "3. Solve Cases", text: "Work on real business problems for Penang SMEs." },
+              { emoji: "🚩", step: "4. Compete", text: "Submit your plans, present in prelims and finals, and win prizes!" }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 group hover:transform hover:scale-105 border border-slate-100"
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+              >
+                <motion.span 
+                  className="text-5xl block mb-6"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.emoji}
+                </motion.span>
+                <h4 className="font-bold text-xl mb-4 text-slate-900">{item.step}</h4>
+                <p className="text-slate-600 leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="py-20">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-slate-50 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-10 text-gray-900">FAQ</h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">Who can join?</h4>
-              <p className="text-gray-700">Any student aged 13–22, especially from Malaysia&apos;s B40 communities.</p>
-            </div>
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">What is the submission language?</h4>
-              <p className="text-gray-700">English (no penalty for second-language learners).</p>
-            </div>
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">How do I register?</h4>
-              <p className="text-gray-700">Click the Register button above or visit the Registration section.</p>
-            </div>
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">What are the prizes?</h4>
-              <p className="text-gray-700">RM2000–3000 prize pool, mentorship, internships, and certificates.</p>
-            </div>
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">Can I join solo?</h4>
-              <p className="text-gray-700">Yes! Use our team finder to connect with others.</p>
-            </div>
-            <div className="mb-4 p-4 border-l-4 border-yellow-500 text-left">
-              <h4 className="font-bold text-gray-900">Do I need business experience?</h4>
-              <p className="text-gray-700">No prior experience needed—just curiosity and drive!</p>
-            </div>
-          </div>
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold text-center mb-16 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            FAQ
+          </motion.h2>
+          <motion.div 
+            className="max-w-4xl mx-auto space-y-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {[
+              { q: "Who can join?", a: "Any student aged 13–22, especially from Malaysia's B40 communities." },
+              { q: "What is the submission language?", a: "English (no penalty for second-language learners)." },
+              { q: "How do I register?", a: "Click the Register button above or visit the Registration section." },
+              { q: "What are the prizes?", a: "RM2000–3000 prize pool, mentorship, internships, and certificates." },
+              { q: "Can I join solo?", a: "Yes! Use our team finder to connect with others." },
+              { q: "Do I need business experience?", a: "No prior experience needed—just curiosity and drive!" }
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                className="bg-white p-8 border-l-4 border-blue-500 rounded-r-2xl shadow-card hover:shadow-glow transition-all duration-300 hover:transform hover:scale-105"
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+              >
+                <h4 className="font-bold text-xl text-slate-900 mb-3">{faq.q}</h4>
+                <p className="text-slate-600 leading-relaxed text-lg">{faq.a}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Supported By Section */}
-      <section className="py-20 bg-gray-50 text-center">
+      <motion.section 
+        className="py-24 bg-gradient-to-br from-blue-50 via-slate-50 to-white text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-10 text-gray-900">Supported By</h2>
-          <p className="mb-4 font-semibold text-gray-700">Emory University of Chicago Singapore American School BPA</p>
-          <h3 className="font-bold mb-2 text-gray-900">Academic Sponsor</h3>
-          <p className="text-gray-700">SKT Education Group</p>
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-12 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Supported By
+          </motion.h2>
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xl font-semibold text-slate-700 bg-white p-6 rounded-2xl shadow-card max-w-2xl mx-auto">
+              Emory University of Chicago Singapore American School BPA
+            </p>
+            <div className="bg-white p-8 rounded-2xl shadow-card max-w-xl mx-auto">
+              <h3 className="font-bold text-2xl mb-4 text-slate-900">Academic Sponsor</h3>
+              <p className="text-xl text-slate-700">SKT Education Group</p>
+            </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
