@@ -18,6 +18,30 @@ const Home = () => {
     }
   };
 
+  // Logo data for the scrolling section
+  const supportedByLogos = [
+    {
+      name: "Emory University",
+      url: "https://via.placeholder.com/220x80/1e40af/ffffff?text=Emory+University"
+    },
+    {
+      name: "University of Chicago",
+      url: "https://via.placeholder.com/220x80/374151/ffffff?text=University+of+Chicago"
+    },
+    {
+      name: "Singapore American School",
+      url: "https://via.placeholder.com/220x80/1d4ed8/ffffff?text=Singapore+American+School"
+    },
+    {
+      name: "BPA",
+      url: "https://via.placeholder.com/220x80/0d9488/ffffff?text=BPA"
+    }
+  ];
+
+  const academicSponsorLogos = [
+    { name: "SKT Education Group", url: "https://via.placeholder.com/220x80/1e293b/ffffff?text=SKT+Education+Group" }
+  ];
+
   return (
     <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
@@ -147,6 +171,147 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Supported By - Horizontal Scrolling Logo Section */}
+      <motion.section 
+        className="py-20 bg-gradient-to-br from-white to-slate-50 overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Supported By
+          </motion.h2>
+          
+          {/* Main Supporters - Scrolling Marquee */}
+          <div className="relative mb-12">
+            <div className="flex overflow-hidden">
+              <motion.div 
+                className="flex gap-16 py-8"
+                animate={{ 
+                  x: [0, -100 * supportedByLogos.length] 
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatType: "loop"
+                }}
+                style={{ minWidth: "200%" }}
+              >
+                {/* First set of logos */}
+                {supportedByLogos.map((logo, index) => (
+                  <motion.div
+                    key={`first-${index}`}
+                    className="flex-shrink-0 flex items-center justify-center h-24 w-48"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={logo.url}
+                      alt={logo.name}
+                      className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
+                      onError={(e) => {
+                        // Fallback to text if image fails to load
+                        const img = e.currentTarget;
+                        const fallback = img.nextElementSibling as HTMLElement;
+                        img.style.display = 'none';
+                        if (fallback) {
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div 
+                      className="hidden items-center justify-center h-full w-full bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 font-semibold text-sm text-center p-4"
+                      style={{ display: 'none' }}
+                    >
+                      {logo.name}
+                    </div>
+                  </motion.div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {supportedByLogos.map((logo, index) => (
+                  <motion.div
+                    key={`second-${index}`}
+                    className="flex-shrink-0 flex items-center justify-center h-24 w-48"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={logo.url}
+                      alt={logo.name}
+                      className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        const fallback = img.nextElementSibling as HTMLElement;
+                        img.style.display = 'none';
+                        if (fallback) {
+                          fallback.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div 
+                      className="hidden items-center justify-center h-full w-full bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 font-semibold text-sm text-center p-4"
+                      style={{ display: 'none' }}
+                    >
+                      {logo.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Academic Sponsor */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold mb-8 text-slate-900">Academic Sponsor</h3>
+            <div className="flex justify-center">
+              {academicSponsorLogos.map((logo, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center justify-center h-20 w-64 bg-white rounded-xl shadow-card p-6"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={logo.url}
+                    alt={logo.name}
+                    className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      const fallback = img.nextElementSibling as HTMLElement;
+                      img.style.display = 'none';
+                      if (fallback) {
+                        fallback.style.display = 'flex';
+                      }
+                    }}
+                  />
+                  <div 
+                    className="hidden items-center justify-center h-full w-full text-slate-700 font-semibold text-lg"
+                    style={{ display: 'none' }}
+                  >
+                    {logo.name}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* Prize Pool Section */}
       <motion.section 
@@ -654,42 +819,6 @@ const Home = () => {
                 <p className="text-slate-600 leading-relaxed text-lg">{faq.a}</p>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Supported By Section */}
-      <motion.section 
-        className="py-24 bg-gradient-to-br from-blue-50 via-slate-50 to-white text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-12 text-gradient"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Supported By
-          </motion.h2>
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xl font-semibold text-slate-700 bg-white p-6 rounded-2xl shadow-card max-w-2xl mx-auto">
-              Emory University of Chicago Singapore American School BPA
-            </p>
-            <div className="bg-white p-8 rounded-2xl shadow-card max-w-xl mx-auto">
-              <h3 className="font-bold text-2xl mb-4 text-slate-900">Academic Sponsor</h3>
-              <p className="text-xl text-slate-700">SKT Education Group</p>
-            </div>
           </motion.div>
         </div>
       </motion.section>
