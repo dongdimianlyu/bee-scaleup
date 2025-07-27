@@ -1,5 +1,5 @@
-<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="80" fill="#012169" rx="8"/>
-  <text x="100" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFD700" text-anchor="middle">EMORY</text>
-  <text x="100" y="52" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle">UNIVERSITY</text>
-</svg>
+<svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="120" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  <text x="150" y="60" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#64748b" text-anchor="middle" dominant-baseline="middle">Emory University</text>
+  <text x="150" y="85" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">(Replace with actual logo)</text>
+</svg> 

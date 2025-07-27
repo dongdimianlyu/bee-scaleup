@@ -118,6 +118,7 @@ const Home = () => {
           >
             <motion.h1 
               className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient leading-tight"
+              style={{ fontFamily: 'Exo 2, sans-serif' }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
@@ -125,6 +126,7 @@ const Home = () => {
               BEE SCALE-UP
               <motion.span 
                 className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 font-medium mt-2"
+                style={{ fontFamily: 'Exo 2, sans-serif' }}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
@@ -135,6 +137,7 @@ const Home = () => {
             
             <motion.p 
               className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+              style={{ fontFamily: 'Exo 2, sans-serif' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
@@ -152,6 +155,7 @@ const Home = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+                style={{ fontFamily: 'Exo 2, sans-serif' }}
               >
                 <span>Register Now</span>
                 <motion.svg
@@ -196,6 +200,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <motion.h2 
             className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
+            style={{ fontFamily: 'Exo 2, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -286,7 +291,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-8 text-slate-900">Academic Sponsor</h3>
+            <h3 className="text-2xl font-bold mb-8 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>Academic Sponsor</h3>
             <div className="flex justify-center">
               {academicSponsorLogos.map((logo, index) => (
                 <motion.div
@@ -315,7 +320,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-8 text-slate-900">Personal Philanthropist</h3>
+                         <h3 className="text-2xl font-bold mb-8 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>Personal Philanthropist</h3>
             <motion.div
               className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl shadow-card p-8 max-w-2xl mx-auto border border-blue-100"
               whileHover={{ scale: 1.02, y: -2 }}
@@ -329,9 +334,9 @@ const Home = () => {
                 >
                   <span className="text-3xl font-bold text-white">MC</span>
                 </motion.div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-2">Mr. Chong</h4>
-                <p className="text-lg text-blue-600 font-semibold mb-4">Platinum Sponsor</p>
-                <p className="text-slate-600 leading-relaxed">
+                                 <h4 className="text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>Mr. Chong</h4>
+                 <p className="text-lg text-blue-600 font-semibold mb-4" style={{ fontFamily: 'Exo 2, sans-serif' }}>Platinum Sponsor</p>
+                 <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
                   Supporting the next generation of business leaders through educational excellence and opportunity creation.
                 </p>
               </div>
@@ -427,10 +432,10 @@ const Home = () => {
               >
                 <span className="text-5xl">🏆</span>
               </motion.div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl" style={{ fontFamily: 'Exo 2, sans-serif' }}>
                 Prize Pool
               </h2>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
                 Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
               </p>
             </motion.div>
@@ -467,8 +472,8 @@ const Home = () => {
                             {item.emoji}
                           </motion.div>
                           <div>
-                            <h3 className="text-2xl font-bold text-white mb-2">{item.place}</h3>
-                            <p className="text-white/70 text-lg">Winner</p>
+                                                    <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.place}</h3>
+                        <p className="text-white/70 text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>Winner</p>
                           </div>
                         </div>
                         <div className="text-right">
@@ -481,7 +486,7 @@ const Home = () => {
                           >
                             {item.prize}
                           </motion.p>
-                          <p className="text-white/70 text-lg">Cash Prize</p>
+                          <p className="text-white/70 text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>Cash Prize</p>
                         </div>
                       </div>
                     </div>
@@ -536,6 +541,7 @@ const Home = () => {
                     <div className="text-center relative z-10">
                       <motion.h3 
                         className="text-2xl font-bold text-white mb-8"
+                        style={{ fontFamily: 'Exo 2, sans-serif' }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.8 }}
@@ -579,7 +585,7 @@ const Home = () => {
                             whileHover={{ scale: 1.05, x: 5 }}
                           >
                             <div className={`w-3 h-3 ${benefit.color} rounded-full shadow-lg`}></div>
-                            <span className="text-lg">{benefit.label}</span>
+                            <span className="text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>{benefit.label}</span>
                           </motion.div>
                         ))}
                       </motion.div>
@@ -628,8 +634,8 @@ const Home = () => {
                 >
                   {item.emoji}
                 </motion.span>
-                <h3 className="font-bold text-2xl mb-4 text-slate-900">{item.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                <h3 className="font-bold text-2xl mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -672,6 +678,7 @@ const Home = () => {
               <motion.div
                 key={index}
                 className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 text-lg font-medium text-slate-700 hover:transform hover:scale-105 border border-slate-100"
+                style={{ fontFamily: 'Exo 2, sans-serif' }}
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
               >
@@ -693,6 +700,7 @@ const Home = () => {
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
             className="text-5xl md:text-6xl font-bold mb-20 text-gradient"
+            style={{ fontFamily: 'Exo 2, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -742,8 +750,8 @@ const Home = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-bold text-slate-800 text-xl mb-2">{item.date}</h3>
-                  <p className="text-slate-600 font-medium">{item.event}</p>
+                  <h3 className="font-bold text-slate-800 text-xl mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.date}</h3>
+                  <p className="text-slate-600 font-medium" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.event}</p>
                 </motion.div>
               </motion.div>
             ))}
@@ -795,8 +803,8 @@ const Home = () => {
                 >
                   {item.emoji}
                 </motion.span>
-                <h4 className="font-bold text-xl mb-4 text-slate-900">{item.step}</h4>
-                <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                <h4 className="font-bold text-xl mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.step}</h4>
+                <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -814,6 +822,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <motion.h2 
             className="text-5xl md:text-6xl font-bold text-center mb-16 text-gradient"
+            style={{ fontFamily: 'Exo 2, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -842,8 +851,8 @@ const Home = () => {
                 variants={fadeInUp}
                 whileHover={{ x: 5 }}
               >
-                <h4 className="font-bold text-xl text-slate-900 mb-3">{faq.q}</h4>
-                <p className="text-slate-600 leading-relaxed text-lg">{faq.a}</p>
+                <h4 className="font-bold text-xl text-slate-900 mb-3" style={{ fontFamily: 'Exo 2, sans-serif' }}>{faq.q}</h4>
+                <p className="text-slate-600 leading-relaxed text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>{faq.a}</p>
               </motion.div>
             ))}
           </motion.div>
