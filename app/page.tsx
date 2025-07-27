@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -22,24 +23,36 @@ const Home = () => {
   const supportedByLogos = [
     {
       name: "Emory University",
-      url: "https://via.placeholder.com/220x80/1e40af/ffffff?text=Emory+University"
+      url: "/logos/emory.png"
     },
     {
       name: "University of Chicago",
-      url: "https://via.placeholder.com/220x80/374151/ffffff?text=University+of+Chicago"
+      url: "/logos/uchicago.png"
     },
     {
       name: "Singapore American School",
-      url: "https://via.placeholder.com/220x80/1d4ed8/ffffff?text=Singapore+American+School"
+      url: "/logos/sas.png"
     },
     {
       name: "BPA",
-      url: "https://via.placeholder.com/220x80/0d9488/ffffff?text=BPA"
+      url: "/logos/bpa.png"
+    },
+    {
+      name: "University of Southern California",
+      url: "/logos/usc.png"
+    },
+    {
+      name: "University College London",
+      url: "/logos/ucl.png"
+    },
+    {
+      name: "University of California, Berkeley",
+      url: "/logos/ucb.png"
     }
   ];
 
   const academicSponsorLogos = [
-    { name: "SKT Education Group", url: "https://via.placeholder.com/220x80/1e293b/ffffff?text=SKT+Education+Group" }
+    { name: "SKT Education Group", url: "/logos/skt.png" }
   ];
 
   return (
@@ -215,19 +228,12 @@ const Home = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
+                    <Image
                       src={logo.url}
                       alt={logo.name}
-                      className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
-                      onError={(e) => {
-                        // Fallback to text if image fails to load
-                        const img = e.currentTarget;
-                        const fallback = img.nextElementSibling as HTMLElement;
-                        img.style.display = 'none';
-                        if (fallback) {
-                          fallback.style.display = 'flex';
-                        }
-                      }}
+                      width={300}
+                      height={120}
+                      className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                     />
                     <div 
                       className="hidden items-center justify-center h-full w-full bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 font-semibold text-sm text-center p-4"
@@ -245,10 +251,12 @@ const Home = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
+                    <Image
                       src={logo.url}
                       alt={logo.name}
-                      className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
+                      width={300}
+                      height={120}
+                      className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                       onError={(e) => {
                         const img = e.currentTarget;
                         const fallback = img.nextElementSibling as HTMLElement;
@@ -270,7 +278,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Academic Sponsor */}
+          {/* Academic Sponsors */}
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
@@ -287,28 +295,47 @@ const Home = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
+                  <Image
                     src={logo.url}
                     alt={logo.name}
-                    className="max-h-full max-w-full object-contain filter grayscale opacity-80 hover:opacity-100 hover:filter-none transition-all duration-300"
-                    onError={(e) => {
-                      const img = e.currentTarget;
-                      const fallback = img.nextElementSibling as HTMLElement;
-                      img.style.display = 'none';
-                      if (fallback) {
-                        fallback.style.display = 'flex';
-                      }
-                    }}
+                    width={300}
+                    height={120}
+                    className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                   />
-                  <div 
-                    className="hidden items-center justify-center h-full w-full text-slate-700 font-semibold text-lg"
-                    style={{ display: 'none' }}
-                  >
-                    {logo.name}
-                  </div>
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* Personal Philanthropist Sponsor */}
+          <motion.div
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold mb-8 text-slate-900">Personal Philanthropist</h3>
+            <motion.div
+              className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl shadow-card p-8 max-w-2xl mx-auto border border-blue-100"
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="text-center">
+                <motion.div
+                  className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 mx-auto"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="text-3xl font-bold text-white">MC</span>
+                </motion.div>
+                <h4 className="text-2xl font-bold text-slate-900 mb-2">Mr. Chong</h4>
+                <p className="text-lg text-blue-600 font-semibold mb-4">Platinum Sponsor</p>
+                <p className="text-slate-600 leading-relaxed">
+                  Supporting the next generation of business leaders through educational excellence and opportunity creation.
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
