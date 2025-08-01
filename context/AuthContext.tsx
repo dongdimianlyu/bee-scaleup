@@ -1,18 +1,30 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { 
+  User as FirebaseUser,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut as firebaseSignOut,
+  onAuthStateChanged
+} from 'firebase/auth';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth, db } from '@/lib/firebase';
+
+export type UserRole = 'participant' | 'judge';
 
 interface User {
   uid: string;
   email: string;
   displayName?: string;
+  role: UserRole;
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, role: UserRole) => Promise<void>;
   signOut: () => Promise<void>;
 }
 
@@ -23,41 +35,68 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is stored in localStorage (mock persistence)
-    const storedUser = localStorage.getItem('mockUser');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
+      if (firebaseUser) {
+        // Get user role from Firestore
+        const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+        const userData = userDoc.data();
+        
+        setUser({
+          uid: firebaseUser.uid,
+          email: firebaseUser.email!,
+          displayName: firebaseUser.displayName || firebaseUser.email?.split('@')[0],
+          role: userData?.role || 'participant'
+        });
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const signIn = async (email: string, password: string): Promise<void> => {
-    // Mock sign in - just simulate a successful login
-    const mockUser: User = {
-      uid: 'mock-uid-' + Date.now(),
-      email: email,
-      displayName: email.split('@')[0]
-    };
-    
-    setUser(mockUser);
-    localStorage.setItem('mockUser', JSON.stringify(mockUser));
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.error('Error signing in:', error);
+      throw error;
+    }
   };
 
-  const signUp = async (email: string, password: string): Promise<void> => {
-    // Mock sign up - just simulate a successful registration
-    const mockUser: User = {
-      uid: 'mock-uid-' + Date.now(),
-      email: email,
-      displayName: email.split('@')[0]
-    };
-    
-    setUser(mockUser);
-    localStorage.setItem('mockUser', JSON.stringify(mockUser));
+  const signUp = async (email: string, password: string, role: UserRole): Promise<void> => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      
+      // Save user role to Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        email: user.email,
+        role: role,
+        createdAt: new Date().toISOString(),
+        // Initialize judge-specific data if role is judge
+        ...(role === 'judge' && {
+          tasks: [
+            { id: 'verify-credentials', title: 'Verify Your Credentials', completed: false },
+            { id: 'review-guidelines', title: 'Review Judging Guidelines', completed: false },
+            { id: 'complete-training', title: 'Complete Judge Training Module', completed: false }
+          ]
+        })
+      });
+    } catch (error) {
+      console.error('Error signing up:', error);
+      throw error;
+    }
   };
 
   const signOut = async (): Promise<void> => {
-    setUser(null);
-    localStorage.removeItem('mockUser');
+    try {
+      await firebaseSignOut(auth);
+    } catch (error) {
+      console.error('Error signing out:', error);
+      throw error;
+    }
   };
 
   const value = {
