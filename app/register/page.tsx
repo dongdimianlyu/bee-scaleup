@@ -40,8 +40,9 @@ const RegisterPage = () => {
       } else {
         router.push('/');
       }
-    } catch (error: any) {
-      setError(error.message || 'Failed to create account');
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to create account';
+      setError(message);
     } finally {
       setLoading(false);
     }

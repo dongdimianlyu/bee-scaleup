@@ -24,8 +24,6 @@ const Header = () => {
     { href: '/certificate', label: 'Certificate' },
   ];
 
-  const registrationUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc-rS-QJrmAuiAEQjhkV2pzBuV26mRMy2GPFjHR8jXq89Yf8Q/viewform?usp=header';
-
   const handleSignOut = async () => {
     try {
       await signOut();

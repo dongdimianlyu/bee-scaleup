@@ -88,7 +88,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
             className="text-lg text-slate-600 mb-6"
             style={{ fontFamily: 'Exo 2, sans-serif' }}
           >
-            You don't have permission to access this page.
+            You don&apos;t have permission to access this page.
           </p>
           <button
             onClick={() => router.push(redirectTo)}

@@ -24,8 +24,9 @@ const LoginPage = () => {
     try {
       await signIn(formData.email, formData.password);
       router.push('/');
-    } catch (error: any) {
-      setError(error.message || 'Failed to sign in');
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to sign in';
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -154,7 +155,7 @@ const LoginPage = () => {
             transition={{ delay: 0.4 }}
           >
             <p className="text-slate-600" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link
                 href="/register"
                 className="text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200"
