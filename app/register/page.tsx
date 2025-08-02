@@ -38,7 +38,7 @@ const RegisterPage = () => {
       if (formData.role === 'judge') {
         router.push('/judge/dashboard');
       } else {
-        router.push('/');
+        router.push('/participant/dashboard');
       }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : 'Failed to create account';

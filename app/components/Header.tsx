@@ -120,6 +120,20 @@ const Header = () => {
                         Judge Dashboard
                       </Link>
                     )}
+
+                    {user.role === 'participant' && (
+                      <Link
+                        href="/participant/dashboard"
+                        className="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors duration-200"
+                        style={{ fontFamily: 'Exo 2, sans-serif' }}
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <svg className="w-4 h-4 mr-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        Participant Dashboard
+                      </Link>
+                    )}
                     
                     <button
                       onClick={handleSignOut}
@@ -229,6 +243,17 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     Judge Dashboard
+                  </Link>
+                )}
+
+                {user.role === 'participant' && (
+                  <Link
+                    href="/participant/dashboard"
+                    className="block px-4 py-3 text-slate-700 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                    style={{ fontFamily: 'Exo 2, sans-serif' }}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Participant Dashboard
                   </Link>
                 )}
                 

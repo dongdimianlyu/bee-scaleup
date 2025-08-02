@@ -75,12 +75,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         email: user.email,
         role: role,
         createdAt: new Date().toISOString(),
-        // Initialize judge-specific data if role is judge
+        // Initialize role-specific data
         ...(role === 'judge' && {
           tasks: [
             { id: 'verify-credentials', title: 'Verify Your Credentials', completed: false },
             { id: 'review-guidelines', title: 'Review Judging Guidelines', completed: false },
             { id: 'complete-training', title: 'Complete Judge Training Module', completed: false }
+          ]
+        }),
+        ...(role === 'participant' && {
+          tasks: [
+            { id: 'complete-profile', title: 'Complete Your Profile', completed: false },
+            { id: 'join-team', title: 'Join or Create a Team', completed: false },
+            { id: 'review-competition', title: 'Review Competition Guidelines', completed: false }
           ]
         })
       });
