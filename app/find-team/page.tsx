@@ -150,7 +150,7 @@ const FindTeamPage = () => {
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  We're building an intelligent platform that will connect you with like-minded participants based on complementary skills, shared goals, and compatible working styles. Stay tuned for updates!
+                  We&apos;re building an intelligent platform that will connect you with like-minded participants based on complementary skills, shared goals, and compatible working styles. Stay tuned for updates!
                 </motion.p>
               </motion.div>
             </div>

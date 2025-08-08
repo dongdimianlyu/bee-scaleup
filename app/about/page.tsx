@@ -131,7 +131,7 @@ const AboutPage = () => {
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  BEE SCALE-UP isn't just another competition—it's a launchpad for the next generation of business innovators.
+                  BEE SCALE-UP isn&apos;t just another competition—it&apos;s a launchpad for the next generation of business innovators.
                 </motion.p>
                 <motion.p 
                   className="text-lg text-slate-600 leading-relaxed"
@@ -201,7 +201,7 @@ const AboutPage = () => {
                   Our Solution
                 </h3>
                 <p className="text-slate-600 leading-relaxed text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  A transformative 7-month journey where students tackle authentic business challenges. Real problems. Real solutions. Real impact. We've created the bridge between classroom theory and marketplace reality.
+                  A transformative 7-month journey where students tackle authentic business challenges. Real problems. Real solutions. Real impact. We&apos;ve created the bridge between classroom theory and marketplace reality.
                 </p>
               </div>
             </motion.div>

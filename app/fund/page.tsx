@@ -82,7 +82,7 @@ const FundPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
           >
-            Invest in tomorrow's business leaders today. Join us in creating opportunities that transform lives and communities.
+            Invest in tomorrow&apos;s business leaders today. Join us in creating opportunities that transform lives and communities.
           </motion.p>
         </motion.div>
 
@@ -447,7 +447,7 @@ const FundPage = () => {
               <h3 className="text-3xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Exo 2, sans-serif' }}>Mr. Chong</h3>
               <p className="text-xl text-blue-600 font-semibold mb-6" style={{ fontFamily: 'Exo 2, sans-serif' }}>Platinum Sponsor</p>
               <p className="text-slate-600 leading-relaxed text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                Leading the charge in supporting educational excellence and creating opportunities for Malaysia's brightest minds.
+                Leading the charge in supporting educational excellence and creating opportunities for Malaysia&apos;s brightest minds.
               </p>
             </div>
           </motion.div>
@@ -504,7 +504,7 @@ const FundPage = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Let's discuss how your organization can partner with us to shape the future of business education in Malaysia.
+                Let&apos;s discuss how your organization can partner with us to shape the future of business education in Malaysia.
               </motion.p>
               
               <motion.div 
