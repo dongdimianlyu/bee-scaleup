@@ -134,7 +134,7 @@ const ResourcesPage = () => {
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  Our curated collection covers everything from business fundamentals to advanced case analysis. Whether you're just starting or aiming for the finals, these resources will accelerate your learning and amplify your impact.
+                  Our curated collection covers everything from business fundamentals to advanced case analysis. Whether you&apos;re just starting or aiming for the finals, these resources will accelerate your learning and amplify your impact.
                 </motion.p>
               </motion.div>
             </div>

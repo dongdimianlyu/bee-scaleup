@@ -18,12 +18,6 @@ const CompetitionPage = () => {
     }
   };
 
-  const slideIn = {
-    initial: { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Animated background elements */}

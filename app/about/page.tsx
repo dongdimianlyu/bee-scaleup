@@ -87,7 +87,7 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
           >
-            We're building the future of business education—one student, one solution, one breakthrough at a time.
+            We&apos;re building the future of business education—one student, one solution, one breakthrough at a time.
           </motion.p>
         </motion.div>
 

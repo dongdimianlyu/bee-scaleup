@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 const FundPage = () => {
   const fadeInUp = {
@@ -134,7 +133,7 @@ const FundPage = () => {
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  When you fund BEE SCALE-UP, you're not just sponsoring an event—you're launching careers, fostering innovation, and building bridges between education and entrepreneurship. Your partnership helps level the playing field for students from all backgrounds.
+                  When you fund BEE SCALE-UP, you&apos;re not just sponsoring an event—you&apos;re launching careers, fostering innovation, and building bridges between education and entrepreneurship. Your partnership helps level the playing field for students from all backgrounds.
                 </motion.p>
               </motion.div>
             </div>

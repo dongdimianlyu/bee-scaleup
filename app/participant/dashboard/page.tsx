@@ -24,7 +24,6 @@ const ParticipantDashboard = () => {
   const completedTasks = tasks.filter(task => task.completed);
   const progress = tasks.length > 0 ? (completedTasks.length / tasks.length) * 100 : 0;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!authLoading && (!user || user.role !== 'participant')) {
       router.push('/');

@@ -76,7 +76,7 @@ const FindTeamPage = () => {
             Find Your Team
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed"
             style={{ fontFamily: 'Exo 2, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
