@@ -99,13 +99,13 @@ const RegisterPage = () => {
               className="text-4xl font-bold text-gradient mb-4"
               style={{ fontFamily: 'Exo 2, sans-serif' }}
             >
-              Join BeeScaleUp
+              Join the Movement
             </h1>
             <p 
               className="text-slate-600 text-lg"
               style={{ fontFamily: 'Exo 2, sans-serif' }}
             >
-              Choose your path and get started
+              Transform your potential into impact. Choose your role and shape the future of business.
             </p>
           </motion.div>
 
@@ -141,7 +141,7 @@ const RegisterPage = () => {
                       Participant
                     </div>
                     <div className="text-sm text-slate-600 mt-1">
-                      Compete & Learn
+                      Solve. Innovate. Win.
                     </div>
                   </div>
                   {formData.role === 'participant' && (
@@ -169,7 +169,7 @@ const RegisterPage = () => {
                       Judge
                     </div>
                     <div className="text-sm text-slate-600 mt-1">
-                      Evaluate & Mentor
+                      Guide. Inspire. Shape.
                     </div>
                   </div>
                   {formData.role === 'judge' && (

@@ -89,7 +89,7 @@ const LoginPage = () => {
               className="text-slate-600 text-lg"
               style={{ fontFamily: 'Exo 2, sans-serif' }}
             >
-              Sign in to your BeeScaleUp account
+              Continue your journey to business excellence
             </p>
           </motion.div>
 
