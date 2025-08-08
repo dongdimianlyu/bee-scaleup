@@ -86,7 +86,7 @@ const FindTeamPage = () => {
           </motion.p>
         </motion.div>
 
-        {/* Why Teams Matter Section */}
+        {/* Main Content - Coming Soon */}
         <motion.section
           className="mb-24"
           initial={{ opacity: 0 }}
@@ -114,33 +114,50 @@ const FindTeamPage = () => {
                 whileInView="animate"
                 viewport={{ once: true }}
               >
+                <motion.div
+                  className="w-24 h-24 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center mb-8 mx-auto"
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="text-5xl">🤝</span>
+                </motion.div>
+                
+                <motion.div
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-700 rounded-full font-bold text-lg mb-8 border border-orange-500/30"
+                  variants={fadeInUp}
+                  style={{ fontFamily: 'Exo 2, sans-serif' }}
+                >
+                  Coming Soon
+                </motion.div>
+
                 <motion.h2 
                   className="text-4xl md:text-5xl font-bold mb-8 text-gradient"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  Why Teams Win
+                  Team Matching Platform
                 </motion.h2>
                 <motion.p 
                   className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  The best solutions come from diverse perspectives collaborating toward a common goal.
+                  Our advanced team formation system is currently under development.
                 </motion.p>
                 <motion.p 
                   className="text-lg text-slate-600 leading-relaxed"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  In BEE SCALE-UP, you'll tackle complex business challenges that require multiple skill sets, different viewpoints, and complementary strengths. The magic happens when finance minds meet creative thinkers, when tech enthusiasts collaborate with marketing strategists.
+                  We're building an intelligent platform that will connect you with like-minded participants based on complementary skills, shared goals, and compatible working styles. Stay tuned for updates!
                 </motion.p>
               </motion.div>
             </div>
           </div>
         </motion.section>
 
-        {/* Team Formation Options */}
+        {/* What to Expect */}
         <motion.section
           className="mb-24"
           initial={{ opacity: 0 }}
@@ -156,258 +173,54 @@ const FindTeamPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Ways to Form Your Team
+            What to Expect
           </motion.h2>
 
           <motion.div 
-            className="grid md:grid-cols-2 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {/* Existing Team */}
-            <motion.div
-              className="group"
-              variants={fadeInUp}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500 h-full">
-                <motion.div
-                  className="w-20 h-20 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
-                >
-                  <span className="text-4xl">🤝</span>
-                </motion.div>
-                <h3 className="text-3xl font-bold mb-6 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  Already Have a Team?
-                </h3>
-                <p className="text-slate-600 leading-relaxed text-lg mb-8" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  Perfect! Register your existing team of 3-5 members. Make sure everyone is aged 13-22 and ready to tackle real business challenges together.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>Team size: 3-5 members</span>
-                  </div>
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>All members must be 13-22 years old</span>
-                  </div>
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>One person registers for the whole team</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Need Teammates */}
-            <motion.div
-              className="group"
-              variants={fadeInUp}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500 h-full">
-                <motion.div
-                  className="w-20 h-20 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
-                >
-                  <span className="text-4xl">🔍</span>
-                </motion.div>
-                <h3 className="text-3xl font-bold mb-6 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  Looking for Teammates?
-                </h3>
-                <p className="text-slate-600 leading-relaxed text-lg mb-8" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  No problem! Our intelligent matching system connects you with like-minded participants based on skills, interests, and goals.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>AI-powered teammate matching</span>
-                  </div>
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>Skill-based compatibility</span>
-                  </div>
-                  <div className="flex items-center text-slate-600">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
-                    <span style={{ fontFamily: 'Exo 2, sans-serif' }}>Regional and time zone consideration</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.section>
-
-        {/* Ideal Team Composition */}
-        <motion.section
-          className="mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            The Winning Team Formula
-          </motion.h2>
-
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
             {[
-              { 
-                role: "The Strategist", 
-                icon: "🧠", 
-                description: "Analytical thinker who sees the big picture",
-                skills: ["Business Analysis", "Strategic Planning", "Problem Solving"],
-                color: "from-purple-500/20 to-pink-500/20"
-              },
-              { 
-                role: "The Creator", 
-                icon: "🎨", 
-                description: "Creative mind who brings ideas to life",
-                skills: ["Design", "Innovation", "Storytelling"],
-                color: "from-pink-500/20 to-red-500/20"
-              },
-              { 
-                role: "The Builder", 
-                icon: "⚡", 
-                description: "Technical expert who makes things work",
-                skills: ["Technology", "Implementation", "Systems"],
+              {
+                title: "Matching",
+                description: "We will match you with a team based on your skills, interests, and goals",
+                icon: "🎯",
                 color: "from-blue-500/20 to-cyan-500/20"
               },
-              { 
-                role: "The Connector", 
-                icon: "🌟", 
-                description: "People person who brings teams together",
-                skills: ["Leadership", "Communication", "Networking"],
+              {
+                title: "Profile Building", 
+                description: "Showcase your skills, interests, and goals to potential teammates",
+                icon: "👤",
+                color: "from-purple-500/20 to-pink-500/20"
+              },
+              {
+                title: "Easy Connect",
+                description: "Simple communication tools to form your perfect team",
+                icon: "💬",
                 color: "from-green-500/20 to-emerald-500/20"
               }
-            ].map((member, index) => (
+            ].map((feature, index) => (
               <motion.div
                 key={index}
                 className="group text-center"
                 variants={fadeInUp}
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500 h-full">
-                  <motion.div
-                    className={`w-16 h-16 bg-gradient-to-r ${member.color} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <span className="text-3xl">{member.icon}</span>
-                  </motion.div>
-                  <h3 className="text-lg font-bold mb-3 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {member.role}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {member.description}
-                  </p>
-                  <div className="space-y-1">
-                    {member.skills.map((skill, i) => (
-                      <div key={i} className="text-xs text-blue-600 font-medium" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-              <span className="font-semibold text-slate-700">Pro tip:</span> The best teams combine different strengths. 
-              You don't need to be perfect in every area—that's what teammates are for!
-            </p>
-          </motion.div>
-        </motion.section>
-
-        {/* Team Matching Process */}
-        <motion.section
-          className="mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            How Team Matching Works
-          </motion.h2>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { 
-                step: "01", 
-                title: "Create Your Profile", 
-                description: "Tell us about your skills, interests, goals, and what you're looking for in teammates",
-                icon: "📝"
-              },
-              { 
-                step: "02", 
-                title: "Get Matched", 
-                description: "Our algorithm finds potential teammates based on complementary skills and shared goals",
-                icon: "🎯"
-              },
-              { 
-                step: "03", 
-                title: "Connect & Form", 
-                description: "Chat with matches, meet virtually, and form your dream team for the competition",
-                icon: "🚀"
-              }
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                className="text-center group"
-                variants={fadeInUp}
                 whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500">
+                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500 h-full">
                   <motion.div
-                    className="w-20 h-20 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
+                    className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <span className="text-4xl">{step.icon}</span>
+                    <span className="text-3xl">{feature.icon}</span>
                   </motion.div>
-                  <div className="text-sm font-bold text-blue-600 mb-3" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    STEP {step.step}
-                  </div>
                   <h3 className="text-xl font-bold mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {step.title}
+                    {feature.title}
                   </h3>
                   <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {step.description}
+                    {feature.description}
                   </p>
                 </div>
               </motion.div>
@@ -444,7 +257,7 @@ const FindTeamPage = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                Ready to Find Your Team?
+                Stay Updated
               </motion.h2>
               <motion.p 
                 className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -454,7 +267,7 @@ const FindTeamPage = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Whether you're coming with friends or looking to meet new collaborators, your perfect team is waiting.
+                Register now and be the first to know when our team formation platform launches.
               </motion.p>
               
               <motion.div 
@@ -471,7 +284,7 @@ const FindTeamPage = () => {
                   className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                 >
-                  <span>Register & Find Team</span>
+                  <span>Register for Updates</span>
                   <motion.svg
                     className="ml-2 w-5 h-5"
                     fill="none"
@@ -485,7 +298,7 @@ const FindTeamPage = () => {
                 </Link>
                 
                 <p className="text-slate-500 text-sm" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  Team formation opens with registration in April 2025
+                  Launch expected with competition registration
                 </p>
               </motion.div>
             </div>
