@@ -36,7 +36,7 @@ const Footer = () => {
               <li><Link href="/mentors" className="text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><span className="mr-2 text-blue-500">→</span>Mentors</Link></li>
               <li><Link href="/resources" className="text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><span className="mr-2 text-blue-500">→</span>Resources</Link></li>
               <li><Link href="/find-team" className="text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><span className="mr-2 text-blue-500">→</span>Find Team</Link></li>
-              <li><Link href="/fund" className="text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><span className="mr-2 text-blue-500">→</span>Fund Us</Link></li>
+              <li><Link href="/fund" className="text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><span className="mr-2 text-blue-500">→</span>Partner Relations</Link></li>
             </ul>
           </div>
 
@@ -69,13 +69,26 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-slate-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4">
             <div className="text-slate-400 text-sm mb-4 md:mb-0">
               © {new Date().getFullYear()} BEE Business Club. All rights reserved.
             </div>
             <div className="text-slate-400 text-sm">
               <span className="font-semibold">Supported by:</span> Emory University, University of Chicago, Singapore American School BPA, SKT Education Group
             </div>
+          </div>
+          
+          {/* Terms & Policy Link */}
+          <div className="text-center border-t border-slate-700 pt-4">
+            <Link 
+              href="https://docs.google.com/document/d/e/2PACX-1vQttCpEF6hBm4yRaz3i8Yyg47rCl_dwM3XOHD2UZCzBKU-3vffgsN-W8JdMCSbpRqnIF3MF7Lr12haW/pub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm underline"
+              style={{ fontFamily: 'Exo 2, sans-serif' }}
+            >
+              Terms & Policy
+            </Link>
           </div>
         </div>
       </div>

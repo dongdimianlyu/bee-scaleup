@@ -7,6 +7,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import Timeline from '@/app/components/Timeline';
 
 interface Task {
   id: string;
@@ -19,6 +20,15 @@ const ParticipantDashboard = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  // Timeline data with updated dates
+  const timelineItems = [
+    { date: "April 2025", event: "Registration Opens" },
+    { date: "May–Aug", event: "Mentorship & Workshops" },
+    { date: "30th of October", event: "Prelims Submission" },
+    { date: "Oct–Nov", event: "Finalist Mentorship" },
+    { date: "6th of November", event: "Finals" }
+  ];
 
   const incompleteTasks = tasks.filter(task => !task.completed);
   const completedTasks = tasks.filter(task => task.completed);
@@ -210,8 +220,26 @@ const ParticipantDashboard = () => {
             </motion.div>
           )}
 
-          {/* Tasks Grid */}
-          <div className="max-w-4xl mx-auto grid gap-6">
+          {/* Main Content Grid - Timeline and Tasks */}
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+            {/* Timeline Section */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="lg:pr-8"
+            >
+              <h3 
+                className="text-2xl font-bold text-slate-800 mb-8"
+                style={{ fontFamily: 'Exo 2, sans-serif' }}
+              >
+                Competition Timeline
+              </h3>
+              <Timeline items={timelineItems} />
+            </motion.div>
+
+            {/* Tasks Section */}
+            <div className="space-y-6">
             {/* Pending Tasks */}
             {incompleteTasks.length > 0 && (
               <motion.div
@@ -258,12 +286,24 @@ const ParticipantDashboard = () => {
                             </span>
                           </div>
                         </div>
-                        <motion.div
-                          className="text-slate-400"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          →
-                        </motion.div>
+                        {task.id === 'join-team' ? (
+                          <motion.a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdCZx66qdgUYZw0L5vXkbCRXbgfIRKO136nabaOiHihSyMXsg/viewform?usp=dialog"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:text-blue-600 transition-colors duration-200"
+                            whileHover={{ scale: 1.1 }}
+                          >
+                            →
+                          </motion.a>
+                        ) : (
+                          <motion.div
+                            className="text-slate-400"
+                            whileHover={{ scale: 1.1 }}
+                          >
+                            →
+                          </motion.div>
+                        )}
                       </div>
                     </motion.div>
                   ))}
@@ -357,6 +397,7 @@ const ParticipantDashboard = () => {
                 </div>
               </motion.div>
             )}
+            </div>
           </div>
         </div>
       </div>

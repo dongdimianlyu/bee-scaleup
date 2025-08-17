@@ -85,6 +85,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }),
         ...(role === 'participant' && {
           tasks: [
+            { id: 'register', title: 'Register for Competition', completed: false },
             { id: 'complete-profile', title: 'Complete Your Profile', completed: false },
             { id: 'join-team', title: 'Join or Create a Team', completed: false },
             { id: 'review-competition', title: 'Review Competition Guidelines', completed: false }

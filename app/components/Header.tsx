@@ -19,7 +19,7 @@ const Header = () => {
     { href: '/about', label: 'About Us' },
     { href: '/mentors', label: 'Mentors' },
     { href: '/resources', label: 'Resources' },
-    { href: '/fund', label: 'Fund Us' },
+    { href: '/fund', label: 'Partner Relations' },
     { href: '/find-team', label: 'Find Team' },
     { href: '/certificate', label: 'Certificate' },
   ];
