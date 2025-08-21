@@ -616,7 +616,7 @@ const Home = () => {
           >
             {[
               { emoji: "🚀", title: "Who?", text: "Students ages 13–22, especially from Malaysia's B40 communities. 100–700 participants expected." },
-              { emoji: "📅", title: "When?", text: "7 months: Registration opens April 2025. Prelims: Sept 10. Finals: Nov 10." },
+              { emoji: "📅", title: "When?", text: "7 months: Registration opens April 2025. Prelims: October 30. Finals: November 16." },
               { emoji: "🏆", title: "Why?", text: "RM2000–3000 prize pool, mentorship, internships, certificates, and real-world impact." },
               { emoji: "🌏", title: "Where?", text: "Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners)." },
               { emoji: "💡", title: "What?", text: "Teams solve real business cases for Penang-based SMEs, focusing on finance, marketing, and tech." }
@@ -722,9 +722,9 @@ const Home = () => {
             {[
               { date: "April 2025", event: "Registration Opens", side: "left" },
               { date: "May–Aug", event: "Mentorship & Workshops", side: "right" },
-              { date: "Sept 10", event: "Prelims", side: "left" },
+              { date: "October 30", event: "Prelims", side: "left" },
               { date: "Oct", event: "Finalist Mentorship", side: "right" },
-              { date: "Nov 10", event: "Finals", side: "left" }
+              { date: "November 16", event: "Finals", side: "left" }
             ].map((item, index) => (
               <motion.div
                 key={index}

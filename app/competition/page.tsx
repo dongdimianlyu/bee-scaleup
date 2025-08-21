@@ -219,7 +219,7 @@ const CompetitionPage = () => {
               {
                 phase: "Phase 4",
                 title: "Grand Finals",
-                duration: "November 10, 2025",
+                duration: "November 16, 2025",
                 description: "The ultimate showdown where final teams compete for the grand prize.",
                 highlights: ["Final presentations", "Industry expert judging", "Awards ceremony", "Networking opportunities"],
                 color: "from-yellow-500 to-orange-500"

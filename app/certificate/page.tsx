@@ -497,7 +497,7 @@ const CertificatePage = () => {
                   >
                     <div className="text-left">
                       <div className="text-sm text-slate-500 mb-1" style={{ fontFamily: 'Exo 2, sans-serif' }}>Date</div>
-                      <div className="font-semibold" style={{ fontFamily: 'Exo 2, sans-serif' }}>November 10, 2025</div>
+                      <div className="font-semibold" style={{ fontFamily: 'Exo 2, sans-serif' }}>November 16, 2025</div>
                     </div>
                     <div className="text-right">
                       <div className="text-sm text-slate-500 mb-1" style={{ fontFamily: 'Exo 2, sans-serif' }}>Certificate ID</div>

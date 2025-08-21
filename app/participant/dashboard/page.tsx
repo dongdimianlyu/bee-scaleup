@@ -25,9 +25,9 @@ const ParticipantDashboard = () => {
   const timelineItems = [
     { date: "April 2025", event: "Registration Opens" },
     { date: "May–Aug", event: "Mentorship & Workshops" },
-    { date: "30th of October", event: "Prelims Submission" },
+    { date: "October 30", event: "Prelims Submission" },
     { date: "Oct–Nov", event: "Finalist Mentorship" },
-    { date: "6th of November", event: "Finals" }
+    { date: "November 16", event: "Finals" }
   ];
 
   const incompleteTasks = tasks.filter(task => !task.completed);
