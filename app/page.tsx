@@ -19,28 +19,23 @@ const Home = () => {
     }
   };
 
-  // Logo data for the scrolling section
-  const supportedByLogos = [
-    {
-      name: "Emory University",
-      url: "/logos/emory.png"
-    },
+  // Logo data for the 4 scrolling sections
+  const guestSpeakersLogos = [
     {
       name: "University of Chicago",
       url: "/logos/uchicago.png"
     },
     {
-      name: "Singapore American School",
-      url: "/logos/sas.png"
+      name: "Emory University",
+      url: "/logos/emory.png"
     },
     {
       name: "BPA",
       url: "/logos/bpa.png"
-    },
-    {
-      name: "University of Southern California",
-      url: "/logos/usc.png"
-    },
+    }
+  ];
+
+  const mentorsLogos = [
     {
       name: "University College London",
       url: "/logos/ucl.png"
@@ -48,11 +43,33 @@ const Home = () => {
     {
       name: "University of California, Berkeley",
       url: "/logos/ucb.png"
+    },
+    {
+      name: "University of Southern California",
+      url: "/logos/usc.png"
     }
   ];
 
-  const academicSponsorLogos = [
-    { name: "SKT Education Group", url: "/logos/skt.png" }
+  const partnersLogos = [
+    {
+      name: "SKT Education Group",
+      url: "/logos/skt.png"
+    },
+    {
+      name: "BPA",
+      url: "/logos/bpa.png"
+    }
+  ];
+
+  const advisorsLogos = [
+    {
+      name: "University of Chicago",
+      url: "/logos/uchicago.png"
+    },
+    {
+      name: "Emory University", 
+      url: "/logos/emory.png"
+    }
   ];
 
   return (
@@ -189,7 +206,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Supported By - Horizontal Scrolling Logo Section */}
+      {/* Four Scrolling Logo Sections */}
       <motion.section 
         className="py-20 bg-gradient-to-br from-white to-slate-50 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -198,150 +215,269 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
+          
+          {/* Guest Speakers From Section */}
+          <motion.div 
+            className="mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Supported By
-          </motion.h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              Guest Speakers From
+            </h2>
           
-          {/* Main Supporters - Scrolling Marquee */}
-          <div className="relative mb-12">
-            <div className="flex overflow-hidden">
-              <motion.div 
-                className="flex gap-16 py-8"
-                animate={{ 
-                  x: [0, -100 * supportedByLogos.length] 
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatType: "loop"
-                }}
-                style={{ minWidth: "200%" }}
-              >
-                {/* First set of logos */}
-                {supportedByLogos.map((logo, index) => (
-                  <motion.div
-                    key={`first-${index}`}
-                    className="flex-shrink-0 flex items-center justify-center h-24 w-48"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Image
-                      src={logo.url}
-                      alt={logo.name}
-                      width={300}
-                      height={120}
-                      className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
-                    />
-                    <div 
-                      className="hidden items-center justify-center h-full w-full bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 font-semibold text-sm text-center p-4"
-                      style={{ display: 'none' }}
-                    >
-                      {logo.name}
-                    </div>
-                  </motion.div>
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {supportedByLogos.map((logo, index) => (
-                  <motion.div
-                    key={`second-${index}`}
-                    className="flex-shrink-0 flex items-center justify-center h-24 w-48"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Image
-                      src={logo.url}
-                      alt={logo.name}
-                      width={300}
-                      height={120}
-                      className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        const fallback = img.nextElementSibling as HTMLElement;
-                        img.style.display = 'none';
-                        if (fallback) {
-                          fallback.style.display = 'flex';
-                        }
-                      }}
-                    />
-                    <div 
-                      className="hidden items-center justify-center h-full w-full bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 font-semibold text-sm text-center p-4"
-                      style={{ display: 'none' }}
-                    >
-                      {logo.name}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Academic Sponsors */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold mb-8 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>Academic Sponsor</h3>
-            <div className="flex justify-center">
-              {academicSponsorLogos.map((logo, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center justify-center h-20 w-64 bg-white rounded-xl shadow-card p-6"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.3 }}
+            <div className="relative">
+              <div className="flex overflow-hidden">
+                <motion.div 
+                  className="flex gap-16 py-8"
+                  animate={{ 
+                    x: [0, -100 * guestSpeakersLogos.length] 
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatType: "loop"
+                  }}
+                  style={{ minWidth: "200%" }}
                 >
-                  <Image
-                    src={logo.url}
-                    alt={logo.name}
-                    width={300}
-                    height={120}
-                    className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
-                  />
+                  {/* First set */}
+                  {guestSpeakersLogos.map((logo, index) => (
+                    <motion.div
+                      key={`guest-first-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                  {/* Duplicate set */}
+                  {guestSpeakersLogos.map((logo, index) => (
+                    <motion.div
+                      key={`guest-second-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
                 </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Personal Philanthropist Sponsor */}
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-                         <h3 className="text-2xl font-bold mb-8 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>Personal Philanthropist</h3>
-            <motion.div
-              className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl shadow-card p-8 max-w-2xl mx-auto border border-blue-100"
-              whileHover={{ scale: 1.02, y: -2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="text-center">
-                <motion.div
-                  className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 mx-auto"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-3xl font-bold text-white">MC</span>
-                </motion.div>
-                                 <h4 className="text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>Mr. Chong</h4>
-                 <p className="text-lg text-blue-600 font-semibold mb-4" style={{ fontFamily: 'Exo 2, sans-serif' }}>Platinum Sponsor</p>
-                 <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                  Supporting the next generation of business leaders through educational excellence and opportunity creation.
-                </p>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
+
+          {/* Mentors From Section */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              Mentors From
+            </h2>
+            <div className="relative">
+              <div className="flex overflow-hidden">
+                <motion.div 
+                  className="flex gap-16 py-8"
+                  animate={{ 
+                    x: [-100 * mentorsLogos.length, 0] 
+                  }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatType: "loop"
+                  }}
+                  style={{ minWidth: "200%" }}
+                >
+                  {/* First set */}
+                  {mentorsLogos.map((logo, index) => (
+                    <motion.div
+                      key={`mentor-first-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                  {/* Duplicate set */}
+                  {mentorsLogos.map((logo, index) => (
+                    <motion.div
+                      key={`mentor-second-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Partners Section */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              Partners
+            </h2>
+            <div className="relative">
+              <div className="flex overflow-hidden">
+                <motion.div 
+                  className="flex gap-16 py-8"
+                  animate={{ 
+                    x: [0, -100 * partnersLogos.length] 
+                  }}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatType: "loop"
+                  }}
+                  style={{ minWidth: "200%" }}
+                >
+                  {/* First set */}
+                  {partnersLogos.map((logo, index) => (
+                    <motion.div
+                      key={`partner-first-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                  {/* Duplicate set */}
+                  {partnersLogos.map((logo, index) => (
+                    <motion.div
+                      key={`partner-second-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Advisors From Section */}
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              Advisors From
+            </h2>
+            <div className="relative">
+              <div className="flex overflow-hidden">
+                <motion.div 
+                  className="flex gap-16 py-8"
+                  animate={{ 
+                    x: [-100 * advisorsLogos.length, 0] 
+                  }}
+                  transition={{
+                    duration: 14,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatType: "loop"
+                  }}
+                  style={{ minWidth: "200%" }}
+                >
+                  {/* First set */}
+                  {advisorsLogos.map((logo, index) => (
+                    <motion.div
+                      key={`advisor-first-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                  {/* Duplicate set */}
+                  {advisorsLogos.map((logo, index) => (
+                    <motion.div
+                      key={`advisor-second-${index}`}
+                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={logo.url}
+                        alt={logo.name}
+                        width={250}
+                        height={100}
+                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+
         </div>
       </motion.section>
 
