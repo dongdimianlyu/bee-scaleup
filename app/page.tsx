@@ -73,13 +73,50 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="bg-[#0a0a0a] min-h-screen relative overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
-        {/* Animated background elements */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden particles-bg">
+        {/* 3D Grid Background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 245, 255, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 245, 255, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            animation: 'gridMove 20s linear infinite'
+          }} />
+        </div>
+        
+        {/* Floating Holographic Elements */}
+        <motion.div
+          className="absolute top-20 left-20 w-32 h-32 holographic-border rounded-full opacity-20"
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+            scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-32 right-32 w-24 h-24 border-2 border-purple-500/30"
+          style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
+          animate={{
+            rotate: [0, -360],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+            y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        {/* Neon Floating Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-10 animate-float"
+            className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full glow-cyan"
             animate={{
               rotate: 360,
               scale: [1, 1.1, 1],
@@ -90,7 +127,7 @@ const Home = () => {
             }}
           />
           <motion.div
-            className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600 rounded-full opacity-5 animate-float"
+            className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full glow-purple"
             animate={{
               rotate: -360,
               scale: [1, 1.2, 1],
@@ -101,7 +138,7 @@ const Home = () => {
             }}
           />
           <motion.div
-            className="absolute top-1/3 left-1/4 w-4 h-4 bg-blue-400 rounded-full opacity-20"
+            className="absolute top-1/3 left-1/4 w-4 h-4 bg-cyan-400 rounded-full glow-cyan animate-pulse-glow"
             animate={{
               y: [0, -20, 0],
               x: [0, 10, 0],
@@ -113,7 +150,7 @@ const Home = () => {
             }}
           />
           <motion.div
-            className="absolute top-2/3 right-1/3 w-3 h-3 bg-blue-300 rounded-full opacity-30"
+            className="absolute top-2/3 right-1/3 w-3 h-3 bg-purple-400 rounded-full glow-purple animate-pulse-glow"
             animate={{
               y: [0, -15, 0],
               x: [0, -8, 0],
@@ -134,16 +171,16 @@ const Home = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient leading-tight"
-              style={{ fontFamily: 'Exo 2, sans-serif' }}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient-holographic leading-tight glow-text-cyan"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             >
               BEE SCALE-UP
               <motion.span 
-                className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 font-medium mt-2"
-                style={{ fontFamily: 'Exo 2, sans-serif' }}
+                className="block text-4xl md:text-5xl lg:text-6xl text-white/90 font-medium mt-2"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
@@ -153,8 +190,8 @@ const Home = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed"
-              style={{ fontFamily: 'Exo 2, sans-serif' }}
+              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+              style={{ fontFamily: 'Inter, sans-serif' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
@@ -171,12 +208,12 @@ const Home = () => {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSc-rS-QJrmAuiAEQjhkV2pzBuV26mRMy2GPFjHR8jXq89Yf8Q/viewform?usp=header"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
-                style={{ fontFamily: 'Exo 2, sans-serif' }}
+                className="inline-flex items-center btn-futuristic text-lg font-bold py-4 px-12 rounded-full transform hover:scale-105 hover:-translate-y-2 group"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 <span>Register Now</span>
                 <motion.svg
-                  className="ml-2 w-5 h-5"
+                  className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -190,15 +227,15 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Futuristic Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center">
+          <div className="w-6 h-10 border-2 border-cyan-400/70 rounded-full flex justify-center glow-cyan backdrop-blur-sm bg-black/20">
             <motion.div
-              className="w-1 h-3 bg-blue-400 rounded-full mt-2"
+              className="w-1 h-3 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
@@ -208,12 +245,22 @@ const Home = () => {
 
       {/* Four Scrolling Logo Sections */}
       <motion.section 
-        className="py-20 bg-gradient-to-br from-white to-slate-50 overflow-hidden"
+        className="py-20 bg-[#0a0a0a] overflow-hidden relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 245, 255, 0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 245, 255, 0.5) 1px, transparent 1px)
+            `,
+            backgroundSize: '100px 100px'
+          }} />
+        </div>
         <div className="container mx-auto px-4">
           
           {/* Guest Speakers From Section */}
@@ -224,7 +271,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Guest Speakers From
             </h2>
           
@@ -256,7 +303,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -273,7 +320,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -290,7 +337,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Mentors From
             </h2>
             <div className="relative">
@@ -321,7 +368,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -338,7 +385,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -355,7 +402,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Partners
             </h2>
             <div className="relative">
@@ -386,7 +433,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -403,7 +450,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -420,7 +467,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Advisors From
             </h2>
             <div className="relative">
@@ -451,7 +498,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -468,7 +515,7 @@ const Home = () => {
                         alt={logo.name}
                         width={250}
                         height={100}
-                        className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
                       />
                     </motion.div>
                   ))}
@@ -483,16 +530,19 @@ const Home = () => {
 
       {/* Prize Pool Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden"
+        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
+        {/* Premium holographic border */}
+        <div className="absolute inset-0 border-t border-b border-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-purple-500/5" />
         {/* Enhanced background elements */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full"
+            className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/10 to-blue-500/5 rounded-full glow-cyan"
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 180, 360],
@@ -505,7 +555,7 @@ const Home = () => {
             style={{ transform: 'translate(40%, -40%)' }}
           />
           <motion.div
-            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/3 rounded-full"
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 to-pink-500/5 rounded-full glow-purple"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [360, 180, 0],
@@ -519,10 +569,10 @@ const Home = () => {
           />
           {/* Additional floating elements */}
           <motion.div
-            className="absolute top-1/3 left-1/5 w-32 h-32 bg-white/10 rounded-full"
+            className="absolute top-1/3 left-1/5 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full glow-cyan"
             animate={{
               y: [0, -20, 0],
-              opacity: [0.3, 0.6, 0.3],
+              opacity: [0.3, 0.7, 0.3],
             }}
             transition={{
               duration: 4,
@@ -531,10 +581,10 @@ const Home = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-white/8 rounded-full"
+            className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-full glow-purple"
             animate={{
               y: [0, 15, 0],
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
               duration: 3,
@@ -562,16 +612,16 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <motion.div
-                className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl mb-8 shadow-xl"
-                whileHover={{ scale: 1.05, rotate: 5 }}
+                className="inline-flex items-center justify-center w-20 h-20 glass rounded-3xl mb-8 glow-cyan"
+                whileHover={{ scale: 1.1, rotate: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-5xl">🏆</span>
+                <span className="text-5xl animate-pulse-glow">🏆</span>
               </motion.div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gradient-holographic glow-text-cyan" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                 Prize Pool
               </h2>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Cash prizes, mentorship opportunities, internships, and certificates awaiting winners!
               </p>
             </motion.div>
@@ -597,7 +647,7 @@ const Home = () => {
                   >
                     {/* Flowing background with gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} rounded-3xl transform rotate-1 group-hover:rotate-0 transition-all duration-500`}></div>
-                    <div className={`relative bg-white/15 backdrop-blur-xl rounded-3xl p-8 border ${item.border} group-hover:bg-white/20 transition-all duration-500 shadow-2xl`}>
+                    <div className={`relative card-futuristic p-8 group-hover:glow-cyan transition-all duration-500`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-6">
                           <motion.div 
@@ -608,13 +658,13 @@ const Home = () => {
                             {item.emoji}
                           </motion.div>
                           <div>
-                                                    <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.place}</h3>
-                        <p className="text-white/70 text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>Winner</p>
+                            <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.place}</h3>
+                            <p className="text-gray-400 text-lg" style={{ fontFamily: 'Inter, sans-serif' }}>Winner</p>
                           </div>
                         </div>
                         <div className="text-right">
                           <motion.p 
-                            className="text-3xl font-bold text-white"
+                            className="text-3xl font-bold text-gradient-holographic glow-text-cyan"
                             initial={{ scale: 0.8 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
@@ -622,7 +672,7 @@ const Home = () => {
                           >
                             {item.prize}
                           </motion.p>
-                          <p className="text-white/70 text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>Cash Prize</p>
+                          <p className="text-gray-400 text-lg" style={{ fontFamily: 'Inter, sans-serif' }}>Cash Prize</p>
                         </div>
                       </div>
                     </div>
@@ -659,7 +709,7 @@ const Home = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20 rounded-[2rem] blur-md"></div>
                   
-                  <div className="relative bg-white/15 backdrop-blur-xl rounded-[2rem] p-10 border border-white/20 shadow-2xl">
+                  <div className="relative card-elevated p-10">
                     {/* Floating elements inside card */}
                     <motion.div
                       className="absolute top-6 right-6 w-16 h-16 bg-white/10 rounded-full"
@@ -677,7 +727,7 @@ const Home = () => {
                     <div className="text-center relative z-10">
                       <motion.h3 
                         className="text-2xl font-bold text-white mb-8"
-                        style={{ fontFamily: 'Exo 2, sans-serif' }}
+                        style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.8 }}
@@ -693,7 +743,7 @@ const Home = () => {
                         transition={{ duration: 1, delay: 1, type: "spring", bounce: 0.4 }}
                         viewport={{ once: true }}
                       >
-                        <div className="text-6xl md:text-7xl font-black text-white leading-none drop-shadow-2xl">
+                        <div className="text-6xl md:text-7xl font-black text-gradient-holographic leading-none glow-text-purple">
                           RM 3,000
                         </div>
                       </motion.div>
@@ -721,7 +771,7 @@ const Home = () => {
                             whileHover={{ scale: 1.05, x: 5 }}
                           >
                             <div className={`w-3 h-3 ${benefit.color} rounded-full shadow-lg`}></div>
-                            <span className="text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>{benefit.label}</span>
+                            <span className="text-lg" style={{ fontFamily: 'Inter, sans-serif' }}>{benefit.label}</span>
                           </motion.div>
                         ))}
                       </motion.div>
@@ -736,12 +786,22 @@ const Home = () => {
 
       {/* Info Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-slate-50 to-white"
+        className="py-24 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 92, 246, 0.5) 1px, transparent 1px)
+            `,
+            backgroundSize: '75px 75px'
+          }} />
+        </div>
         <div className="container mx-auto px-4">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
@@ -759,7 +819,7 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 text-center group hover:transform hover:scale-105 border border-slate-100"
+                className="p-8 card-futuristic text-center group"
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
               >
@@ -770,8 +830,8 @@ const Home = () => {
                 >
                   {item.emoji}
                 </motion.span>
-                <h3 className="font-bold text-2xl mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.title}</h3>
-                <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.text}</p>
+                <h3 className="font-bold text-2xl mb-4 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.title}</h3>
+                <p className="text-gray-300 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -780,7 +840,7 @@ const Home = () => {
 
       {/* Benefits Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-blue-50 via-slate-50 to-white"
+        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -788,7 +848,8 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-16 text-gradient"
+            className="text-5xl md:text-6xl font-bold mb-16 text-gradient-holographic text-center"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -813,8 +874,8 @@ const Home = () => {
             ].map((benefit, index) => (
               <motion.div
                 key={index}
-                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 text-lg font-medium text-slate-700 hover:transform hover:scale-105 border border-slate-100"
-                style={{ fontFamily: 'Exo 2, sans-serif' }}
+                className="p-8 card-futuristic text-lg font-medium text-gray-300"
+                style={{ fontFamily: 'Inter, sans-serif' }}
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
               >
@@ -827,7 +888,7 @@ const Home = () => {
 
       {/* Timeline Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-slate-100 to-white"
+        className="py-24 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -835,8 +896,8 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-20 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
+            className="text-5xl md:text-6xl font-bold mb-20 text-gradient-holographic text-center"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -847,7 +908,7 @@ const Home = () => {
           <div className="relative max-w-4xl mx-auto">
             {/* Central line */}
             <motion.div 
-              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"
+              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-cyan-400 to-purple-500 rounded-full glow-cyan"
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -872,22 +933,22 @@ const Home = () => {
               >
               <div className="order-1 w-5/12"></div>
                 <motion.div 
-                  className="z-20 flex items-center justify-center order-1 bg-gradient-to-r from-blue-500 to-blue-600 shadow-xl w-12 h-12 rounded-full"
+                  className="z-20 flex items-center justify-center order-1 bg-gradient-to-r from-cyan-500 to-purple-500 shadow-xl w-12 h-12 rounded-full glow-cyan"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.2 }}
                 >
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
+                  <div className="w-4 h-4 bg-black rounded-full"></div>
                 </motion.div>
                 <motion.div 
-                  className="order-1 bg-white rounded-2xl shadow-card hover:shadow-glow w-5/12 px-8 py-6 text-left border border-slate-100"
+                  className="order-1 card-futuristic w-5/12 px-8 py-6 text-left"
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-bold text-slate-800 text-xl mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.date}</h3>
-                  <p className="text-slate-600 font-medium" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.event}</p>
+                  <h3 className="font-bold text-white text-xl mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.date}</h3>
+                  <p className="text-gray-300 font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>{item.event}</p>
                 </motion.div>
               </motion.div>
             ))}
@@ -897,7 +958,7 @@ const Home = () => {
 
       {/* How It Works Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50"
+        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -905,7 +966,8 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-16 text-gradient"
+            className="text-5xl md:text-6xl font-bold mb-16 text-gradient-holographic text-center"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -928,7 +990,7 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="p-8 bg-white rounded-2xl shadow-card hover:shadow-glow transition-all duration-300 group hover:transform hover:scale-105 border border-slate-100"
+                className="p-8 card-futuristic group"
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
               >
@@ -939,8 +1001,8 @@ const Home = () => {
                 >
                   {item.emoji}
                 </motion.span>
-                <h4 className="font-bold text-xl mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.step}</h4>
-                <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.text}</p>
+                <h4 className="font-bold text-xl mb-4 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.step}</h4>
+                <p className="text-gray-300 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -949,7 +1011,7 @@ const Home = () => {
 
       {/* FAQ Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-slate-50 to-white"
+        className="py-24 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -957,8 +1019,8 @@ const Home = () => {
       >
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
+            className="text-5xl md:text-6xl font-bold text-center mb-16 text-gradient-holographic"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -983,12 +1045,12 @@ const Home = () => {
             ].map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-8 border-l-4 border-blue-500 rounded-r-2xl shadow-card hover:shadow-glow transition-all duration-300 hover:transform hover:scale-105"
+                className="card-futuristic p-8 border-l-4 border-cyan-500 rounded-r-2xl"
                 variants={fadeInUp}
                 whileHover={{ x: 5 }}
               >
-                <h4 className="font-bold text-xl text-slate-900 mb-3" style={{ fontFamily: 'Exo 2, sans-serif' }}>{faq.q}</h4>
-                <p className="text-slate-600 leading-relaxed text-lg" style={{ fontFamily: 'Exo 2, sans-serif' }}>{faq.a}</p>
+                <h4 className="font-bold text-xl text-white mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{faq.q}</h4>
+                <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: 'Inter, sans-serif' }}>{faq.a}</p>
               </motion.div>
             ))}
           </motion.div>
