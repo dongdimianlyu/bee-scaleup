@@ -86,7 +86,7 @@ const FindTeamPage = () => {
           </motion.p>
         </motion.div>
 
-        {/* Main Content - Coming Soon */}
+        {/* Team Search Registration */}
         <motion.section
           className="mb-24"
           initial={{ opacity: 0 }}
@@ -124,11 +124,11 @@ const FindTeamPage = () => {
                 </motion.div>
                 
                 <motion.div
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-700 rounded-full font-bold text-lg mb-8 border border-orange-500/30"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-700 rounded-full font-bold text-lg mb-8 border border-green-500/30"
                   variants={fadeInUp}
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                 >
-                  Coming Soon
+                  Now Available
                 </motion.div>
 
                 <motion.h2 
@@ -136,22 +136,65 @@ const FindTeamPage = () => {
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  Team Matching Platform
+                  Team Search Registration
                 </motion.h2>
                 <motion.p 
                   className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  Our advanced team formation system is currently under development.
+                  Looking for teammates? Register for our team search process and get matched with other participants.
                 </motion.p>
                 <motion.p 
-                  className="text-lg text-slate-600 leading-relaxed"
+                  className="text-lg text-slate-600 leading-relaxed mb-12"
                   style={{ fontFamily: 'Exo 2, sans-serif' }}
                   variants={fadeInUp}
                 >
-                  We&apos;re building an intelligent platform that will connect you with like-minded participants based on complementary skills, shared goals, and compatible working styles. Stay tuned for updates!
+                  Fill out our team search form and the BEE SCALE-UP Competition Committee will help connect you with compatible teammates based on your preferences and requirements.
                 </motion.p>
+
+                <motion.a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdCZx66qdgUYZw0L5vXkbCRXbgfIRKO136nabaOiHihSyMXsg/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-12 rounded-full hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+                  style={{ fontFamily: 'Exo 2, sans-serif' }}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Register for Team Search</span>
+                  <motion.svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </motion.svg>
+                </motion.a>
+
+                {/* Contact Information */}
+                <motion.div 
+                  className="mt-8 p-6 bg-blue-50/80 rounded-2xl border border-blue-200"
+                  variants={fadeInUp}
+                >
+                  <h3 className="text-lg font-bold text-blue-900 mb-3" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+                    Need Help?
+                  </h3>
+                  <div className="flex flex-col md:flex-row gap-4 justify-center items-center text-blue-700">
+                    <div className="flex items-center">
+                      <span className="mr-2">📱</span>
+                      <span style={{ fontFamily: 'Exo 2, sans-serif' }}>WhatsApp: +60 1133650751 (Zac)</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="mr-2">✉️</span>
+                      <span style={{ fontFamily: 'Exo 2, sans-serif' }}>beebusinessclub@gmail.com</span>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
