@@ -206,11 +206,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glow-text-cyan {
-  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
 }
 
 .glow-text-purple {
-  text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+  text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
 }
 
 /* Card styles */
@@ -425,6 +425,44 @@ h1, h2, h3, h4, h5, h6 {
   
   .card-futuristic:hover {
     transform: translateY(-4px) scale(1.01);
+  }
+  
+  /* Mobile font sizes */
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-6xl {
+    font-size: 3rem !important;
+  }
+  
+  .text-7xl {
+    font-size: 3.5rem !important;
+  }
+  
+  /* Reduce padding on mobile */
+  .py-32 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+  
+  .py-40 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+  
+  /* Reduce particle effects on mobile */
+  .particles-bg::before {
+    opacity: 0.1;
   }
 }
 

@@ -49,15 +49,25 @@ const MentorProfilePage = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#0a0a0a] min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-20">
-        <div className="container mx-auto px-4 py-16">
+      <section className="bg-[#0a0a0a] py-20 relative">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 245, 255, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 245, 255, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gradient">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Meet Our Mentors
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
               Learn from experienced professionals who will guide you through your business journey.
             </p>
           </div>
@@ -65,14 +75,14 @@ const MentorProfilePage = () => {
       </section>
 
       {/* Mentors Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-[#0a0a0a]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {mentors.map((mentor) => (
-              <div key={mentor.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div key={mentor.id} className="card-futuristic overflow-hidden hover:glow-cyan transition-all duration-300 transform hover:-translate-y-2">
                 {/* Profile Image */}
-                <div className="relative h-80 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                <div className="relative h-80 bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg glow-cyan">
                     {imageErrors[mentor.id] ? (
                       <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                         <div className="text-center">
@@ -94,27 +104,27 @@ const MentorProfilePage = () => {
 
                 {/* Profile Content */}
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">{mentor.name}</h2>
+                  <h2 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{mentor.name}</h2>
                   
                   {/* Education */}
                   <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-1">Education</h3>
-                    <p className="text-gray-700 font-medium">{mentor.college}</p>
-                    <p className="text-gray-600 text-sm">{mentor.major}</p>
+                    <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Education</h3>
+                    <p className="text-gray-300 font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>{mentor.college}</p>
+                    <p className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>{mentor.major}</p>
                   </div>
 
                   {/* Bio */}
                   <div className="mb-6">
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">About</h3>
-                    <p className="text-gray-700 leading-relaxed">{mentor.bio}</p>
+                    <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>About</h3>
+                    <p className="text-gray-300 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>{mentor.bio}</p>
                   </div>
 
                   {/* Expertise Tags */}
                   <div className="mb-6">
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Expertise</h3>
+                    <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Expertise</h3>
                     <div className="flex flex-wrap gap-2">
                       {mentor.expertise.map((skill, index) => (
-                        <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                        <span key={index} className="bg-cyan-500/20 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full border border-cyan-500/30">
                           {skill}
                         </span>
                       ))}
@@ -123,11 +133,11 @@ const MentorProfilePage = () => {
 
                   {/* Achievements */}
                   <div className="mb-6">
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Key Achievements</h3>
+                    <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Key Achievements</h3>
                     <ul className="space-y-1">
                       {mentor.achievements.map((achievement, index) => (
-                        <li key={index} className="text-gray-700 text-sm flex items-start">
-                          <span className="text-blue-500 mr-2">✓</span>
+                        <li key={index} className="text-gray-300 text-sm flex items-start" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          <span className="text-cyan-400 mr-2">✓</span>
                           {achievement}
                         </li>
                       ))}

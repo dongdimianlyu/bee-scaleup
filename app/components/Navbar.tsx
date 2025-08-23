@@ -20,7 +20,7 @@ const Navbar = ({ navLinks }: { navLinks: NavLink[] }) => {
         >
           <Link 
             href={link.href} 
-            className="text-gray-300 hover:text-white font-medium transition-all duration-300 relative group px-2 py-1"
+            className="text-gray-300 hover:text-white font-medium transition-all duration-200 relative group px-4 py-3 rounded-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
             {link.label}
@@ -28,12 +28,12 @@ const Navbar = ({ navLinks }: { navLinks: NavLink[] }) => {
               className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
               initial={{ width: 0 }}
               whileHover={{ width: '100%' }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
             <motion.span 
-              className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-md opacity-0"
+              className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-lg opacity-0"
               whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             />
           </Link>
         </motion.div>

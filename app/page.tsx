@@ -169,9 +169,10 @@ const Home = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center"
           >
             <motion.h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient-holographic leading-tight glow-text-cyan"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient-holographic leading-tight text-center"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -179,10 +180,10 @@ const Home = () => {
             >
               BEE SCALE-UP
               <motion.span 
-                className="block text-4xl md:text-5xl lg:text-6xl text-white/90 font-medium mt-2"
+                className="block text-3xl md:text-4xl lg:text-5xl text-white/90 font-medium mt-4"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
               >
                 Competition
@@ -245,7 +246,7 @@ const Home = () => {
 
       {/* Four Scrolling Logo Sections */}
       <motion.section 
-        className="py-20 bg-[#0a0a0a] overflow-hidden relative"
+        className="py-32 bg-[#0a0a0a] overflow-hidden relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -265,11 +266,11 @@ const Home = () => {
           
           {/* Guest Speakers From Section */}
           <motion.div 
-            className="mb-20"
-            initial={{ opacity: 0, y: 30 }}
+            className="mb-32"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Guest Speakers From
@@ -298,13 +299,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                   {/* Duplicate set */}
@@ -315,13 +318,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -331,7 +336,7 @@ const Home = () => {
 
           {/* Mentors From Section */}
           <motion.div 
-            className="mb-20"
+            className="mb-32"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -363,13 +368,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                   {/* Duplicate set */}
@@ -380,13 +387,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -396,7 +405,7 @@ const Home = () => {
 
           {/* Partners Section */}
           <motion.div 
-            className="mb-20"
+            className="mb-32"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -428,13 +437,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                   {/* Duplicate set */}
@@ -445,13 +456,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -493,13 +506,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                   {/* Duplicate set */}
@@ -510,13 +525,15 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={logo.url}
-                        alt={logo.name}
-                        width={250}
-                        height={100}
-                        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter hover:brightness-125 hover:glow-cyan"
-                      />
+                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          width={150}
+                          height={60}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -530,7 +547,7 @@ const Home = () => {
 
       {/* Prize Pool Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white relative overflow-hidden"
+        className="py-40 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -786,7 +803,7 @@ const Home = () => {
 
       {/* Info Section */}
       <motion.section 
-        className="py-24 bg-[#0a0a0a] relative"
+        className="py-32 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -840,7 +857,7 @@ const Home = () => {
 
       {/* Benefits Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
+        className="py-32 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -850,10 +867,10 @@ const Home = () => {
           <motion.h2 
             className="text-5xl md:text-6xl font-bold mb-16 text-gradient-holographic text-center"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             Benefits
           </motion.h2>
@@ -888,7 +905,7 @@ const Home = () => {
 
       {/* Timeline Section */}
       <motion.section 
-        className="py-24 bg-[#0a0a0a] relative"
+        className="py-32 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -898,10 +915,10 @@ const Home = () => {
           <motion.h2 
             className="text-5xl md:text-6xl font-bold mb-20 text-gradient-holographic text-center"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             Timeline
           </motion.h2>
@@ -958,7 +975,7 @@ const Home = () => {
 
       {/* How It Works Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
+        className="py-32 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -968,10 +985,10 @@ const Home = () => {
           <motion.h2 
             className="text-5xl md:text-6xl font-bold mb-16 text-gradient-holographic text-center"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             How It Works
           </motion.h2>
@@ -1011,7 +1028,7 @@ const Home = () => {
 
       {/* FAQ Section */}
       <motion.section 
-        className="py-24 bg-[#0a0a0a] relative"
+        className="py-32 bg-[#0a0a0a] relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -1021,10 +1038,10 @@ const Home = () => {
           <motion.h2 
             className="text-5xl md:text-6xl font-bold text-center mb-16 text-gradient-holographic"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             FAQ
           </motion.h2>

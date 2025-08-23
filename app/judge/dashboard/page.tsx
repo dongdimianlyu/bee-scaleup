@@ -74,12 +74,12 @@ const JudgeDashboard = () => {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <motion.div
-          className="text-blue-600 text-xl font-semibold"
+          className="text-cyan-400 text-xl font-semibold"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          style={{ fontFamily: 'Exo 2, sans-serif' }}
+          style={{ fontFamily: 'Space Grotesk, sans-serif' }}
         >
           Loading...
         </motion.div>
@@ -89,11 +89,11 @@ const JudgeDashboard = () => {
 
   return (
     <ProtectedRoute requiredRole="judge">
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <div className="min-h-screen bg-[#0a0a0a]">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-5"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 rounded-full"
           animate={{
             rotate: 360,
             scale: [1, 1.1, 1],
@@ -104,7 +104,7 @@ const JudgeDashboard = () => {
           }}
         />
         <motion.div
-          className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600 rounded-full opacity-3"
+          className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-purple-500/10 to-pink-500/5 rounded-full"
           animate={{
             rotate: -360,
             scale: [1, 1.2, 1],
@@ -125,14 +125,14 @@ const JudgeDashboard = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 
-            className="text-5xl md:text-6xl font-bold text-gradient mb-4"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
             Judge Dashboard
           </h1>
           <p 
-            className="text-xl text-slate-600 max-w-2xl mx-auto"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
+            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            style={{ fontFamily: 'Inter, sans-serif' }}
           >
             Welcome back, {user?.displayName}! Complete your setup tasks to get started.
           </p>

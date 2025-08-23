@@ -507,11 +507,9 @@ const ResourcesPage = () => {
             />
             
             {[
-              { phase: "Foundation", resources: "Business Fundamentals", duration: "Week 1-2", side: "left" },
-              { phase: "Analysis", resources: "Case Study Methods", duration: "Week 3-4", side: "right" },
-              { phase: "Collaboration", resources: "Team Dynamics", duration: "Week 5-6", side: "left" },
-              { phase: "Strategy", resources: "Innovation & Planning", duration: "Week 7-8", side: "right" },
-              { phase: "Presentation", resources: "Communication Skills", duration: "Week 9-10", side: "left" }
+              { phase: "Collaboration", resources: "Team Dynamics", duration: "", side: "left" },
+              { phase: "Strategy", resources: "Innovation & Planning", duration: "", side: "right" },
+              { phase: "Presentation", resources: "Communication Skills", duration: "", side: "left" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -539,7 +537,6 @@ const ResourcesPage = () => {
                 >
                   <h3 className="font-bold text-slate-800 text-xl mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.phase}</h3>
                   <p className="text-blue-600 font-medium mb-2" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.resources}</p>
-                  <p className="text-slate-500 text-sm" style={{ fontFamily: 'Exo 2, sans-serif' }}>{item.duration}</p>
                 </motion.div>
               </motion.div>
             ))}

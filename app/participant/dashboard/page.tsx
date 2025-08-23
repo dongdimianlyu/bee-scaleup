@@ -54,6 +54,35 @@ const ParticipantDashboard = () => {
       
       if (userData?.tasks) {
         setTasks(userData.tasks);
+      } else {
+        // Initialize with default tasks if none exist
+        const defaultTasks = [
+          {
+            id: 'profile-setup',
+            title: 'Complete Profile Setup',
+            completed: false
+          },
+          {
+            id: 'join-team',
+            title: 'Register for Team',
+            completed: false
+          },
+          {
+            id: 'review-guidelines',
+            title: 'Review Competition Guidelines',
+            completed: false
+          }
+        ];
+        setTasks(defaultTasks);
+        
+        // Save default tasks to Firebase
+        try {
+          await updateDoc(doc(db, 'users', user.uid), {
+            tasks: defaultTasks
+          });
+        } catch (error) {
+          console.error('Error saving default tasks:', error);
+        }
       }
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -84,12 +113,12 @@ const ParticipantDashboard = () => {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <motion.div
-          className="text-blue-600 text-xl font-semibold"
+          className="text-cyan-400 text-xl font-semibold"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          style={{ fontFamily: 'Exo 2, sans-serif' }}
+          style={{ fontFamily: 'Space Grotesk, sans-serif' }}
         >
           Loading...
         </motion.div>
@@ -99,11 +128,11 @@ const ParticipantDashboard = () => {
 
   return (
     <ProtectedRoute requiredRole="participant">
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <div className="min-h-screen bg-[#0a0a0a]">
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-5"
+            className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 rounded-full"
             animate={{
               rotate: 360,
               scale: [1, 1.1, 1],
@@ -114,7 +143,7 @@ const ParticipantDashboard = () => {
             }}
           />
           <motion.div
-            className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-600 rounded-full opacity-3"
+            className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-purple-500/10 to-pink-500/5 rounded-full"
             animate={{
               rotate: -360,
               scale: [1, 1.2, 1],
@@ -135,14 +164,14 @@ const ParticipantDashboard = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 
-              className="text-5xl md:text-6xl font-bold text-gradient mb-4"
-              style={{ fontFamily: 'Exo 2, sans-serif' }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Participant Dashboard
             </h1>
             <p 
-              className="text-xl text-slate-600 max-w-2xl mx-auto"
-              style={{ fontFamily: 'Exo 2, sans-serif' }}
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
+              style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Welcome, {user?.displayName}! Complete your onboarding tasks to get ready for the competition.
             </p>
@@ -155,33 +184,33 @@ const ParticipantDashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-card border border-white/20 p-8">
+            <div className="card-futuristic p-8">
               <div className="flex items-center justify-between mb-6">
                 <h2 
-                  className="text-2xl font-bold text-slate-800"
-                  style={{ fontFamily: 'Exo 2, sans-serif' }}
+                  className="text-2xl font-bold text-white"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 >
                   Onboarding Progress
                 </h2>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-blue-600">
+                  <div className="text-3xl font-bold text-cyan-400">
                     {Math.round(progress)}%
                   </div>
-                  <div className="text-sm text-slate-600">Complete</div>
+                  <div className="text-sm text-gray-400">Complete</div>
                 </div>
               </div>
               
               {/* Progress Bar */}
-              <div className="w-full bg-slate-200 rounded-full h-3 mb-4">
+              <div className="w-full bg-gray-700 rounded-full h-3 mb-4">
                 <motion.div 
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
                 />
               </div>
               
-              <div className="flex items-center text-sm text-slate-600">
+              <div className="flex items-center text-sm text-gray-400">
                 <span>{completedTasks.length} of {tasks.length} tasks completed</span>
               </div>
             </div>
@@ -195,7 +224,7 @@ const ParticipantDashboard = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+              <div className="glass border border-cyan-500/30 rounded-2xl p-6">
                 <div className="flex items-center">
                   <motion.div
                     className="text-3xl mr-4"
@@ -206,12 +235,12 @@ const ParticipantDashboard = () => {
                   </motion.div>
                   <div>
                     <h3 
-                      className="text-lg font-bold text-blue-800 mb-1"
-                      style={{ fontFamily: 'Exo 2, sans-serif' }}
+                      className="text-lg font-bold text-cyan-400 mb-1"
+                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                     >
                       Onboarding Required
                     </h3>
-                    <p className="text-blue-700" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+                    <p className="text-gray-300" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Please complete {incompleteTasks.length} remaining task{incompleteTasks.length !== 1 ? 's' : ''} to fully prepare for the competition.
                     </p>
                   </div>
@@ -230,8 +259,8 @@ const ParticipantDashboard = () => {
               className="lg:pr-8"
             >
               <h3 
-                className="text-2xl font-bold text-slate-800 mb-8"
-                style={{ fontFamily: 'Exo 2, sans-serif' }}
+                className="text-2xl font-bold text-white mb-8"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 Competition Timeline
               </h3>
@@ -248,8 +277,8 @@ const ParticipantDashboard = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <h3 
-                  className="text-2xl font-bold text-slate-800 mb-6"
-                  style={{ fontFamily: 'Exo 2, sans-serif' }}
+                  className="text-2xl font-bold text-white mb-6"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 >
                   Pending Tasks
                 </h3>
@@ -257,7 +286,7 @@ const ParticipantDashboard = () => {
                   {incompleteTasks.map((task, index) => (
                     <motion.div
                       key={task.id}
-                      className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-card border border-white/20 p-6 hover:shadow-glow transition-all duration-300"
+                      className="card-futuristic p-6 hover:glow-cyan transition-all duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
@@ -275,26 +304,28 @@ const ParticipantDashboard = () => {
                         </button>
                         <div className="flex-1">
                           <h4 
-                            className="text-lg font-semibold text-slate-800"
-                            style={{ fontFamily: 'Exo 2, sans-serif' }}
+                            className="text-lg font-semibold text-white"
+                            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                           >
                             {task.title}
                           </h4>
                           <div className="flex items-center mt-2">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                               Pending
                             </span>
                           </div>
                         </div>
                         {task.id === 'join-team' ? (
                           <motion.a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdCZx66qdgUYZw0L5vXkbCRXbgfIRKO136nabaOiHihSyMXsg/viewform?usp=dialog"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-600 transition-colors duration-200"
-                            whileHover={{ scale: 1.1 }}
+                            href="/find-team"
+                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
+                            whileHover={{ scale: 1.05, y: -1 }}
+                            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                           >
-                            →
+                            Register for Team
+                            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                           </motion.a>
                         ) : (
                           <motion.div
@@ -319,8 +350,8 @@ const ParticipantDashboard = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <h3 
-                  className="text-2xl font-bold text-slate-800 mb-6 mt-12"
-                  style={{ fontFamily: 'Exo 2, sans-serif' }}
+                  className="text-2xl font-bold text-white mb-6 mt-12"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 >
                   Completed Tasks
                 </h3>
@@ -328,7 +359,7 @@ const ParticipantDashboard = () => {
                   {completedTasks.map((task, index) => (
                     <motion.div
                       key={task.id}
-                      className="bg-green-50/80 backdrop-blur-xl rounded-2xl shadow-card border border-green-200/20 p-6"
+                      className="glass border border-green-500/30 rounded-2xl p-6"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
@@ -336,7 +367,7 @@ const ParticipantDashboard = () => {
                       <div className="flex items-center">
                         <button
                           onClick={() => toggleTask(task.id)}
-                          className="mr-4 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
+                          className="mr-4 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-400 transition-colors duration-200 glow-cyan"
                         >
                           <motion.div
                             initial={{ scale: 0 }}
@@ -348,13 +379,13 @@ const ParticipantDashboard = () => {
                         </button>
                         <div className="flex-1">
                           <h4 
-                            className="text-lg font-semibold text-green-800 line-through"
-                            style={{ fontFamily: 'Exo 2, sans-serif' }}
+                            className="text-lg font-semibold text-green-400 line-through"
+                            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                           >
                             {task.title}
                           </h4>
                           <div className="flex items-center mt-2">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-500/20 text-green-300 border border-green-500/30">
                               ✓ Completed
                             </span>
                           </div>
