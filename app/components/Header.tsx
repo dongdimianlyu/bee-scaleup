@@ -58,19 +58,19 @@ const Header = () => {
 
   return (
     <header className="glass-heavy sticky top-0 z-50 border-b border-white/10 shadow-2xl">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         <Link href="/" className="flex items-center transition-all duration-300 hover:opacity-80 min-w-0 flex-shrink-0">
           {!imageError ? (
             <Image 
               src="/logos/bee-scale-logo.png" 
               alt="Bee Scale Logo" 
-              width={96}
-              height={96}
-              className="h-24 w-auto"
+              width={144}
+              height={144}
+              className="h-36 w-auto"
               onError={() => setImageError(true)}
             />
           ) : (
-            <span className="text-2xl font-bold text-gradient-holographic transition-all duration-300 glow-text-cyan whitespace-nowrap">
+            <span className="text-4xl font-bold text-gradient-holographic transition-all duration-300 glow-text-cyan whitespace-nowrap">
               BEE SCALE-UP
             </span>
           )}

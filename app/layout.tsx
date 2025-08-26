@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "BeeScaleUp",
   description: "A boilerplate for Next.js projects.",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/logos/bee-scale-logo.png',
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
