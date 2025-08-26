@@ -41,6 +41,18 @@ const MentorProfilePage = () => {
       expertise: ["Entrepreneurship", "Technology", "Global Impact", "Renewable Energy", "Youth Leadership"],
       achievements: ["Founded Piñata Pitch global startup competition", "Built renewable energy projects in Uganda", "UC Berkeley M.E.T Program (1% acceptance rate)", "Global youth empowerment advocate"],
       quote: "Everything around you that you call life was made up by people that were no smarter than you. - Steve Jobs"
+    },
+    {
+      id: 4,
+      name: "Chua Zhi Yu",
+      college: "Business Professional",
+      major: "Investment Banking & Private Equity",
+      bio: "Experienced in investment banking and private equity, with a passion for pro-bono consulting and leadership development. Committed to driving meaningful change and creating a lasting impact in the communities we live in.",
+      hobbies: ["Board Game", "Football", "Running", "Travel"],
+      image: "/logos/chua.png",
+      expertise: ["Investment Banking", "Private Equity", "Pro-bono Consulting", "Leadership Development", "Community Impact"],
+      achievements: ["Investment Banking Professional", "Private Equity Specialist", "Pro-bono Consulting Expert", "Leadership Development Advocate"],
+      quote: "To grow, look ahead; to truly succeed, look back and give back."
     }
   ];
 

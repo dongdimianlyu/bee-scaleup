@@ -32,7 +32,7 @@ const Navbar = ({ navLinks }: { navLinks: NavLink[] }) => {
         >
           {link.dropdown ? (
             <div className="relative">
-              <button 
+              <button
                 className="text-gray-300 hover:text-white font-medium transition-all duration-200 relative group px-3 py-2 rounded-lg flex items-center space-x-1 text-sm"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >

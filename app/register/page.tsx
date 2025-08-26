@@ -5,22 +5,30 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useAuth, UserRole } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
+import PrivacyTermsModal from '@/app/components/PrivacyTermsModal';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: '',
-    role: 'participant' as UserRole
+    role: 'participant' as UserRole,
+    acceptPrivacyTerms: false
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const { signUp, signInWithGoogle } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!formData.acceptPrivacyTerms) {
+      setError('You must agree to the Privacy Terms & Policy to continue');
+      return;
+    }
 
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
@@ -50,6 +58,12 @@ const RegisterPage = () => {
 
   const handleGoogleSignUp = async (role: UserRole) => {
     setError('');
+
+    if (!formData.acceptPrivacyTerms) {
+      setError('You must agree to the Privacy Terms & Policy to continue');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -256,6 +270,31 @@ const RegisterPage = () => {
               />
             </motion.div>
 
+            {/* Privacy Terms Checkbox */}
+            <motion.div {...fadeInUp} transition={{ delay: 0.45 }}>
+              <div className="flex items-start space-x-3">
+                <input
+                  type="checkbox"
+                  id="acceptPrivacyTerms"
+                  checked={formData.acceptPrivacyTerms}
+                  onChange={(e) => setFormData({ ...formData, acceptPrivacyTerms: e.target.checked })}
+                  className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  required
+                />
+                <label htmlFor="acceptPrivacyTerms" className="text-sm text-slate-600" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+                  I agree to the{' '}
+                  <button
+                    type="button"
+                    onClick={() => setShowPrivacyModal(true)}
+                    className="text-blue-600 hover:text-blue-700 font-semibold underline transition-colors duration-200"
+                  >
+                    Privacy Terms & Policy
+                  </button>
+                  {' '}and understand how my data will be used.
+                </label>
+              </div>
+            </motion.div>
+
             {/* Submit Button */}
             <motion.button
               type="submit"
@@ -342,6 +381,12 @@ const RegisterPage = () => {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Privacy Terms Modal */}
+      <PrivacyTermsModal 
+        isOpen={showPrivacyModal} 
+        onClose={() => setShowPrivacyModal(false)} 
+      />
     </div>
   );
 };

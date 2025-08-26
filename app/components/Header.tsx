@@ -19,6 +19,7 @@ const Header = () => {
       href: '/competition', 
       label: 'Competition',
       dropdown: [
+        { href: '/competition', label: 'Competition Overview' },
         { href: '/mentors', label: 'Mentors' },
         { href: '/competition/judges', label: 'Judges' },
         { href: '/resources', label: 'Resources' },
@@ -29,6 +30,7 @@ const Header = () => {
       href: '/about', 
       label: 'About Us',
       dropdown: [
+        { href: '/about', label: 'About Us' },
         { href: '/about/our-team', label: 'Our Team' },
       ]
     },
@@ -226,20 +228,27 @@ const Header = () => {
             <div key={link.href}>
               {link.dropdown ? (
                 <>
-                  <div className="px-4 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-white/10 mb-2">
+                  <Link 
+                    href={link.href} 
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors duration-200 font-semibold"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                    onClick={() => setIsOpen(false)}
+                  >
                     {link.label}
+                  </Link>
+                  <div className="ml-4 border-l border-white/20 pl-4 space-y-1">
+                    {link.dropdown.map((item) => (
+                      <Link 
+                        key={item.href} 
+                        href={item.href} 
+                        className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors duration-200"
+                        style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
-                  {link.dropdown.map((item) => (
-                    <Link 
-                      key={item.href} 
-                      href={item.href} 
-                      className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors duration-200 ml-4"
-                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
                 </>
               ) : (
                 <Link 
