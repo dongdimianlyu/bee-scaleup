@@ -176,7 +176,7 @@ const CertificatePage = () => {
                   "Participate in mentorship sessions",
                   "Submit preliminary case analysis"
                 ],
-                icon: "📜",
+                icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd"/></svg>,
                 color: "from-green-500/20 to-emerald-500/20",
                 borderColor: "border-green-500/30"
               },
@@ -189,7 +189,7 @@ const CertificatePage = () => {
                   "Present final solutions",
                   "Demonstrate innovation and impact"
                 ],
-                icon: "🏅",
+                icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>,
                 color: "from-blue-500/20 to-cyan-500/20",
                 borderColor: "border-blue-500/30"
               },
@@ -202,7 +202,7 @@ const CertificatePage = () => {
                   "Special recognition award",
                   "Exceptional contribution to program"
                 ],
-                icon: "🏆",
+                icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z" clipRule="evenodd"/></svg>,
                 color: "from-yellow-500/20 to-orange-500/20",
                 borderColor: "border-yellow-500/30"
               }
@@ -223,7 +223,7 @@ const CertificatePage = () => {
                       className="text-center mb-8"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <span className="text-5xl mb-4 block">{cert.icon}</span>
+                      <div className="text-blue-600 mb-4 flex justify-center">{cert.icon}</div>
                       <h3 className="text-2xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Exo 2, sans-serif' }}>
                         {cert.level}
                       </h3>
@@ -255,162 +255,9 @@ const CertificatePage = () => {
           </motion.div>
         </motion.section>
 
-        {/* Certificate Features */}
-        <motion.section
-          className="mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Certificate Features
-          </motion.h2>
 
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              {
-                feature: "Digital Verification",
-                description: "Blockchain-secured digital certificates with unique verification codes",
-                icon: "🔐",
-                color: "from-blue-500/20 to-cyan-500/20"
-              },
-              {
-                feature: "Professional Design", 
-                description: "Beautifully designed certificates suitable for portfolios and LinkedIn",
-                icon: "🎨",
-                color: "from-purple-500/20 to-pink-500/20"
-              },
-              {
-                feature: "Skill Validation",
-                description: "Detailed breakdown of competencies and skills demonstrated",
-                icon: "✅",
-                color: "from-green-500/20 to-emerald-500/20"
-              },
-              {
-                feature: "Instant Download",
-                description: "High-resolution PDF available immediately upon completion",
-                icon: "⚡",
-                color: "from-yellow-500/20 to-orange-500/20"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                className="group text-center"
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500 h-full">
-                  <motion.div
-                    className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <span className="text-3xl">{feature.icon}</span>
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {feature.feature}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
 
-        {/* How to Get Your Certificate */}
-        <motion.section
-          className="mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient"
-            style={{ fontFamily: 'Exo 2, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            How to Earn Your Certificate
-          </motion.h2>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { 
-                step: "01", 
-                title: "Register & Participate", 
-                description: "Join the competition and actively engage in all program activities",
-                icon: "📝"
-              },
-              { 
-                step: "02", 
-                title: "Complete Requirements", 
-                description: "Fulfill all requirements for your target certificate level",
-                icon: "✅"
-              },
-              { 
-                step: "03", 
-                title: "Assessment Review", 
-                description: "Our team validates your participation and achievement level",
-                icon: "🔍"
-              },
-              { 
-                step: "04", 
-                title: "Receive Certificate", 
-                description: "Download your verified digital certificate and celebrate your achievement",
-                icon: "🎉"
-              }
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                className="text-center group"
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-100 shadow-card hover:shadow-glow transition-all duration-500">
-                  <motion.div
-                    className="w-20 h-20 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300"
-                  >
-                    <span className="text-4xl">{step.icon}</span>
-                  </motion.div>
-                  <div className="text-sm font-bold text-blue-600 mb-3" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    STEP {step.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed" style={{ fontFamily: 'Exo 2, sans-serif' }}>
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
 
         {/* Certificate Preview Mockup */}
         <motion.section

@@ -52,7 +52,17 @@ const Footer = () => {
                 </svg>
                 <div>
                   <p className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>General Inquiries</p>
-                  <p className="text-white" style={{ fontFamily: 'Inter, sans-serif' }}>bee.businessclub@gmail.com</p>
+                  <p className="text-white" style={{ fontFamily: 'Inter, sans-serif' }}>beebusinessclub.com</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-cyan-500 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <div>
+                  <p className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>Sponsor Inquiries</p>
+                  <p className="text-white" style={{ fontFamily: 'Inter, sans-serif' }}>sponsor@beebusinessclub.com</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -68,166 +78,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Organization Sections */}
-        <div className="border-t border-white/10 pt-12 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Guest Speakers From */}
-            <div className="bg-black/30 rounded-lg p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                Guest Speakers From
-              </h3>
-              <div className="flex justify-center items-center space-x-8">
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/columbia.png" 
-                    alt="Columbia Business School" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/capisa.png" 
-                    alt="Capisa" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/jpm.png" 
-                    alt="JPMorgan Chase" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-              </div>
-            </div>
 
-            {/* Mentors From */}
-            <div className="bg-black/30 rounded-lg p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                Mentors From
-              </h3>
-              <div className="flex justify-center items-center space-x-6">
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/met.png" 
-                    alt="Berkeley M.E.T" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/ucl.png" 
-                    alt="UCL" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/hkust.png" 
-                    alt="HKUST" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/usc.png" 
-                    alt="USC" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/boston.png" 
-                    alt="Boston College" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Partners */}
-            <div className="bg-black/30 rounded-lg p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                Partners
-              </h3>
-              <div className="flex justify-center items-center space-x-8">
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/pydc.png" 
-                    alt="PYDC" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/skt.png" 
-                    alt="SKT" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-              </div>
-              <p className="text-center text-gray-400 text-sm mt-6" style={{ fontFamily: 'Inter, sans-serif' }}>
-                & philanthropists
-              </p>
-            </div>
-
-            {/* Advisors From */}
-            <div className="bg-black/30 rounded-lg p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                Advisors From
-              </h3>
-              <div className="flex justify-center items-center space-x-8">
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/uchicago.png" 
-                    alt="University of Chicago" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/john.png" 
-                    alt="Johns Hopkins University" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <div className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg">
-                  <Image 
-                    src="/logos/lse.png" 
-                    alt="LSE" 
-                    width={100} 
-                    height={60}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Bottom Section */}
         <div className="border-t border-white/10 pt-8 relative">

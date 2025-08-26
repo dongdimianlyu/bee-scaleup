@@ -320,9 +320,9 @@ const AboutPage = () => {
                 viewport={{ once: true }}
               >
                 {[
-                  { number: "100-700", label: "Future Leaders", suffix: "" },
+                  { number: "100-200", label: "Future Leaders", suffix: "" },
                   { number: "RM 3,000", label: "Prize Pool", suffix: "" },
-                  { number: "7", label: "Months Journey", suffix: "" },
+                  { number: "2", label: "Months Journey", suffix: "" },
                   { number: "∞", label: "Potential Impact", suffix: "" }
                 ].map((stat, index) => (
                   <motion.div

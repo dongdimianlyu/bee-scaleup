@@ -113,15 +113,15 @@ const Home = () => {
           />
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto px-4 text-center relative z-10 flex items-center justify-center min-h-screen">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center justify-center max-w-6xl mx-auto"
           >
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient-holographic leading-tight text-center"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 text-gradient-holographic leading-tight text-center"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -129,7 +129,7 @@ const Home = () => {
             >
               BEE SCALE-UP
               <motion.span 
-                className="block text-3xl md:text-4xl lg:text-5xl text-white/90 font-medium mt-4"
+                className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white/90 font-medium mt-6"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const Home = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed px-4"
               style={{ fontFamily: 'Inter, sans-serif' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ const Home = () => {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSc-rS-QJrmAuiAEQjhkV2pzBuV26mRMy2GPFjHR8jXq89Yf8Q/viewform?usp=header"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center btn-futuristic text-lg font-bold py-4 px-12 rounded-full transform hover:scale-105 hover:-translate-y-2 group"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-black rounded-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl group"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 <span>Register Now</span>
@@ -688,10 +688,10 @@ const Home = () => {
                         viewport={{ once: true }}
                       >
                         {[
-                          { icon: "💰", label: "Cash Prizes", color: "bg-green-400" },
-                          { icon: "🎯", label: "Mentorship Opportunities", color: "bg-blue-400" },
-                          { icon: "🚀", label: "Internship Placements", color: "bg-purple-400" },
-                          { icon: "🏅", label: "Professional Certificates", color: "bg-yellow-400" }
+                          { icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/></svg>, label: "Cash Prizes", color: "bg-green-400" },
+                          { icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/></svg>, label: "Mentorship Opportunities", color: "bg-blue-400" },
+                          { icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2zm4-3a1 1 0 00-1 1v1h2V4a1 1 0 00-1-1zM7 9a1 1 0 000 2v2a1 1 0 001 1h4a1 1 0 001-1v-2a1 1 0 100-2H7z" clipRule="evenodd"/></svg>, label: "Internship Placements", color: "bg-purple-400" },
+                          { icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z" clipRule="evenodd"/></svg>, label: "Professional Certificates", color: "bg-yellow-400" }
                         ].map((benefit, index) => (
                           <motion.div 
                             key={index}
@@ -702,7 +702,9 @@ const Home = () => {
                             viewport={{ once: true }}
                             whileHover={{ scale: 1.05, x: 5 }}
                           >
-                            <div className={`w-3 h-3 ${benefit.color} rounded-full shadow-lg`}></div>
+                            <div className={`w-6 h-6 ${benefit.color} rounded-full shadow-lg flex items-center justify-center text-white`}>
+                              {benefit.icon}
+                            </div>
                             <span className="text-lg" style={{ fontFamily: 'Inter, sans-serif' }}>{benefit.label}</span>
                           </motion.div>
                         ))}
@@ -743,11 +745,11 @@ const Home = () => {
             viewport={{ once: true }}
           >
             {[
-              { emoji: "🚀", title: "Who?", text: "Students ages 13–22, especially from Malaysia's B40 communities. 100–700 participants expected." },
-              { emoji: "📅", title: "When?", text: "7 months: Registration opens April 2025. Prelims: October 30. Finals: November 16." },
-              { emoji: "🏆", title: "Why?", text: "RM2000–3000 prize pool, mentorship, internships, certificates, and real-world impact." },
-              { emoji: "🌏", title: "Where?", text: "Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners)." },
-              { emoji: "💡", title: "What?", text: "Teams solve real business cases for Penang-based SMEs, focusing on finance, marketing, and tech." }
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/></svg>, title: "Who?", text: "Students ages 13–22, especially from Malaysia's B40 communities. 100–700 participants expected." },
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/></svg>, title: "When?", text: "2 months: Registration opens April 2025. Prelims: October 30. Finals: November 16." },
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>, title: "Why?", text: "3000 prize pool, mentorship, internships, certificates, and real-world impact." },
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/></svg>, title: "Where?", text: "Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners)." },
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z"/></svg>, title: "What?", text: "Teams solve real business cases for local based SMEs, focusing on expanding the business across region." }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -755,13 +757,13 @@ const Home = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
               >
-                <motion.span 
-                  className="text-5xl block mb-6"
+                <motion.div 
+                  className="text-cyan-400 block mb-6 flex justify-center"
                   whileHover={{ scale: 1.2, rotate: 10 }}
                   transition={{ duration: 0.3 }}
                 >
                   {item.emoji}
-                </motion.span>
+                </motion.div>
                 <h3 className="font-bold text-2xl mb-4 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.title}</h3>
                 <p className="text-gray-300 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>{item.text}</p>
               </motion.div>
@@ -797,12 +799,12 @@ const Home = () => {
             viewport={{ once: true }}
           >
             {[
-              "🤝 Professional & peer mentorship",
-              "📈 Financial literacy & STEM workshops", 
-              "🎓 Internship opportunities",
-              "📜 Certificates for all participants",
-              "💬 Team finder & networking",
-              "🌱 Real-world business impact"
+              "Professional & peer mentorship",
+              "Financial literacy & STEM workshops", 
+              "Internship opportunities",
+              "Certificates for all participants",
+              "Team finder & networking",
+              "Real-world business impact"
             ].map((benefit, index) => (
               <motion.div
                 key={index}
@@ -888,58 +890,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* How It Works Section */}
-      <motion.section 
-        className="py-32 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-4 text-center">
-          <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-16 text-gradient-holographic text-center"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            How It Works
-          </motion.h2>
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { emoji: "📝", step: "1. Register", text: "Sign up solo or with a team. Use our team finder if needed!" },
-              { emoji: "📚", step: "2. Prepare", text: "Access study resources, attend workshops, and meet your mentors." },
-              { emoji: "💼", step: "3. Solve Cases", text: "Work on real business problems for Penang SMEs." },
-              { emoji: "🚩", step: "4. Compete", text: "Submit your plans, present in prelims and finals, and win prizes!" }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="p-8 card-futuristic group"
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-              >
-                <motion.span 
-                  className="text-5xl block mb-6"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {item.emoji}
-                </motion.span>
-                <h4 className="font-bold text-xl mb-4 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.step}</h4>
-                <p className="text-gray-300 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>{item.text}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
+
 
       {/* FAQ Section */}
       <motion.section 
@@ -971,7 +922,7 @@ const Home = () => {
               { q: "Who can join?", a: "Any student aged 13–22, especially from Malaysia's B40 communities." },
               { q: "What is the submission language?", a: "English (no penalty for second-language learners)." },
               { q: "How do I register?", a: "Click the Register Now button to access our registration form." },
-              { q: "What are the prizes?", a: "RM2000–3000 prize pool, mentorship, internships, and certificates." },
+              { q: "What are the prizes?", a: "3000 prize pool, mentorship, internships, and certificates." },
               { q: "Can I join solo?", a: "Yes! Use our team finder to connect with others." },
               { q: "Do I need business experience?", a: "No prior experience needed—just curiosity and drive!" }
             ].map((faq, index) => (
