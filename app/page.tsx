@@ -19,58 +19,7 @@ const Home = () => {
     }
   };
 
-  // Logo data for the 4 scrolling sections
-  const guestSpeakersLogos = [
-    {
-      name: "University of Chicago",
-      url: "/logos/uchicago.png"
-    },
-    {
-      name: "Emory University",
-      url: "/logos/emory.png"
-    },
-    {
-      name: "BPA",
-      url: "/logos/bpa.png"
-    }
-  ];
 
-  const mentorsLogos = [
-    {
-      name: "University College London",
-      url: "/logos/ucl.png"
-    },
-    {
-      name: "University of California, Berkeley",
-      url: "/logos/ucb.png"
-    },
-    {
-      name: "University of Southern California",
-      url: "/logos/usc.png"
-    }
-  ];
-
-  const partnersLogos = [
-    {
-      name: "SKT Education Group",
-      url: "/logos/skt.png"
-    },
-    {
-      name: "BPA",
-      url: "/logos/bpa.png"
-    }
-  ];
-
-  const advisorsLogos = [
-    {
-      name: "University of Chicago",
-      url: "/logos/uchicago.png"
-    },
-    {
-      name: "Emory University", 
-      url: "/logos/emory.png"
-    }
-  ];
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen relative overflow-hidden">
@@ -264,7 +213,7 @@ const Home = () => {
         </div>
         <div className="container mx-auto px-4">
           
-          {/* Guest Speakers From Section */}
+          {/* Organization Sections */}
           <motion.div 
             className="mb-32"
             initial={{ opacity: 0, y: 50 }}
@@ -272,272 +221,238 @@ const Home = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Guest Speakers From
-            </h2>
-          
-            <div className="relative">
-              <div className="flex overflow-hidden">
-                <motion.div 
-                  className="flex gap-16 py-8"
-                  animate={{ 
-                    x: [0, -100 * guestSpeakersLogos.length] 
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatType: "loop"
-                  }}
-                  style={{ minWidth: "200%" }}
-                >
-                  {/* First set */}
-                  {guestSpeakersLogos.map((logo, index) => (
-                    <motion.div
-                      key={`guest-first-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                  {/* Duplicate set */}
-                  {guestSpeakersLogos.map((logo, index) => (
-                    <motion.div
-                      key={`guest-second-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+              {/* Guest Speakers From */}
+              <motion.div 
+                className="bg-black/30 rounded-lg p-8 border border-white/10 backdrop-blur-sm"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Guest Speakers From
+                </h3>
+                <div className="flex justify-center items-center space-x-8">
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/columbia.png" 
+                      alt="Columbia Business School" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/capisa.png" 
+                      alt="Capisa" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/jpm.png" 
+                      alt="JPMorgan Chase" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
 
-          {/* Mentors From Section */}
-          <motion.div 
-            className="mb-32"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Mentors From
-            </h2>
-            <div className="relative">
-              <div className="flex overflow-hidden">
-                <motion.div 
-                  className="flex gap-16 py-8"
-                  animate={{ 
-                    x: [-100 * mentorsLogos.length, 0] 
-                  }}
-                  transition={{
-                    duration: 18,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatType: "loop"
-                  }}
-                  style={{ minWidth: "200%" }}
-                >
-                  {/* First set */}
-                  {mentorsLogos.map((logo, index) => (
-                    <motion.div
-                      key={`mentor-first-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                  {/* Duplicate set */}
-                  {mentorsLogos.map((logo, index) => (
-                    <motion.div
-                      key={`mentor-second-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+              {/* Mentors From */}
+              <motion.div 
+                className="bg-black/30 rounded-lg p-8 border border-white/10 backdrop-blur-sm"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Mentors From
+                </h3>
+                <div className="flex justify-center items-center space-x-6">
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/met.png" 
+                      alt="Berkeley M.E.T" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/ucl.png" 
+                      alt="UCL" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/hkust.png" 
+                      alt="HKUST" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/usc.png" 
+                      alt="USC" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/boston.png" 
+                      alt="Boston College" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
 
-          {/* Partners Section */}
-          <motion.div 
-            className="mb-32"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Partners
-            </h2>
-            <div className="relative">
-              <div className="flex overflow-hidden">
-                <motion.div 
-                  className="flex gap-16 py-8"
-                  animate={{ 
-                    x: [0, -100 * partnersLogos.length] 
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatType: "loop"
-                  }}
-                  style={{ minWidth: "200%" }}
-                >
-                  {/* First set */}
-                  {partnersLogos.map((logo, index) => (
-                    <motion.div
-                      key={`partner-first-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                  {/* Duplicate set */}
-                  {partnersLogos.map((logo, index) => (
-                    <motion.div
-                      key={`partner-second-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+              {/* Partners */}
+              <motion.div 
+                className="bg-black/30 rounded-lg p-8 border border-white/10 backdrop-blur-sm"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Partners
+                </h3>
+                <div className="flex justify-center items-center space-x-8">
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/pydc.png" 
+                      alt="PYDC" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/skt.png" 
+                      alt="SKT" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                </div>
+                <p className="text-center text-gray-400 text-sm mt-6" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  & philanthropists
+                </p>
+              </motion.div>
 
-          {/* Advisors From Section */}
-          <motion.div 
-            className="mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-holographic" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Advisors From
-            </h2>
-            <div className="relative">
-              <div className="flex overflow-hidden">
-                <motion.div 
-                  className="flex gap-16 py-8"
-                  animate={{ 
-                    x: [-100 * advisorsLogos.length, 0] 
-                  }}
-                  transition={{
-                    duration: 14,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatType: "loop"
-                  }}
-                  style={{ minWidth: "200%" }}
-                >
-                  {/* First set */}
-                  {advisorsLogos.map((logo, index) => (
-                    <motion.div
-                      key={`advisor-first-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                  {/* Duplicate set */}
-                  {advisorsLogos.map((logo, index) => (
-                    <motion.div
-                      key={`advisor-second-${index}`}
-                      className="flex-shrink-0 flex items-center justify-center h-20 w-44"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-white rounded-lg p-4 h-16 w-40 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={logo.url}
-                          alt={logo.name}
-                          width={150}
-                          height={60}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
+              {/* Advisors From */}
+              <motion.div 
+                className="bg-black/30 rounded-lg p-8 border border-white/10 backdrop-blur-sm"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-8 text-cyan-400 text-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Advisors From
+                </h3>
+                <div className="flex justify-center items-center space-x-8">
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/uchicago.png" 
+                      alt="University of Chicago" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/john.png" 
+                      alt="Johns Hopkins University" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image 
+                      src="/logos/lse.png" 
+                      alt="LSE" 
+                      width={100} 
+                      height={60}
+                      className="object-contain w-full h-full"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
