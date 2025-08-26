@@ -34,6 +34,11 @@ const ParticipantDashboard = () => {
         // Initialize with default tasks if none exist
         const defaultTasks = [
           {
+            id: 'register',
+            title: 'Register for Competition',
+            completed: false
+          },
+          {
             id: 'profile-setup',
             title: 'Complete Profile Setup',
             completed: false
@@ -315,7 +320,21 @@ const ParticipantDashboard = () => {
                             </span>
                           </div>
                         </div>
-                        {task.id === 'join-team' ? (
+                        {task.id === 'register' ? (
+                          <motion.a
+                            href="https://docs.google.com/forms/d/1VS6N6P6E372Ms3JCM-hfbKuEmq1frvlheWMVStFpjD0/viewform?edit_requested=true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
+                            whileHover={{ scale: 1.05, y: -1 }}
+                            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                          >
+                            Register Now
+                            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </motion.a>
+                        ) : task.id === 'join-team' ? (
                           <motion.a
                             href="https://docs.google.com/forms/d/e/1FAIpQLSdCZx66qdgUYZw0L5vXkbCRXbgfIRKO136nabaOiHihSyMXsg/viewform?usp=dialog"
                             target="_blank"

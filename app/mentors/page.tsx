@@ -21,7 +21,7 @@ const MentorProfilePage = () => {
     {
       id: 2,
       name: "Will Wang",
-      college: "Business Professional",
+      college: "UCL Business & Health",
       major: "Business Leadership & Competition",
       bio: "2024-2026 President of Business Professionals of America (BPA) China Executive Council. 2022-2025 Founder/President of STW Business Club. 2023-2024 President of OTIA High School Student Union. Certified Young Investors Analyst (CYIA).",
       hobbies: ["Browse social media", "TikTok", "Rednote blogging", "Vlogging", "Movie fan"],
@@ -45,7 +45,7 @@ const MentorProfilePage = () => {
     {
       id: 4,
       name: "Chua Zhi Yu",
-      college: "Business Professional",
+      college: "HKUST Business School",
       major: "Investment Banking & Private Equity",
       bio: "Experienced in investment banking and private equity, with a passion for pro-bono consulting and leadership development. Committed to driving meaningful change and creating a lasting impact in the communities we live in.",
       hobbies: ["Board Game", "Football", "Running", "Travel"],
@@ -82,6 +82,14 @@ const MentorProfilePage = () => {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
               Learn from experienced professionals who will guide you through your business journey.
             </p>
+            <div className="mt-8 space-y-4">
+              <p className="text-lg text-cyan-400 font-semibold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                Free but EXCLUSIVE to competition participants (Rolling basis - First Come First Serve)
+              </p>
+              <p className="text-md text-blue-400 font-medium" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                More Elite student mentors incoming...
+              </p>
+            </div>
           </div>
         </div>
       </section>

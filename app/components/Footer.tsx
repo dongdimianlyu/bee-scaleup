@@ -11,7 +11,7 @@ const Footer = () => {
               BEE SCALE-UP
             </h4>
             <p className="text-gray-400 leading-relaxed mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
-              A 2-month business case competition empowering students (ages 13–22) from secondary to university levels—especially in Malaysia&apos;s B40 communities—through real-world business problem solving.
+              A 2-month business case competition empowering students (ages 13–22) from secondary to university levels—especially in Malaysia&apos;through real-world business problem solving.
             </p>
             <div className="flex space-x-4">
               <Link 
@@ -51,7 +51,7 @@ const Footer = () => {
                 </svg>
                 <div>
                   <p className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>General Inquiries</p>
-                  <p className="text-white" style={{ fontFamily: 'Inter, sans-serif' }}>beebusinessclub.com</p>
+                  <p className="text-white" style={{ fontFamily: 'Inter, sans-serif' }}>info@beebusinessclub.com</p>
                 </div>
               </div>
               <div className="flex items-start">

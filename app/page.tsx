@@ -156,7 +156,7 @@ const Home = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
             >
               <Link 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSc-rS-QJrmAuiAEQjhkV2pzBuV26mRMy2GPFjHR8jXq89Yf8Q/viewform?usp=header"
+                href="https://docs.google.com/forms/d/1VS6N6P6E372Ms3JCM-hfbKuEmq1frvlheWMVStFpjD0/viewform?edit_requested=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-black rounded-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl group"
@@ -749,7 +749,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             {[
-              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/></svg>, title: "Who?", text: "Students ages 13–22, especially from Malaysia's B40 communities. 100–700 participants expected." },
+              { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/></svg>, title: "Who?", text: "Students ages 13–22. 100-200 participants expected." },
               { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/></svg>, title: "When?", text: "2 months: Registration opens April 2025. Prelims: October 30. Finals: November 16." },
               { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>, title: "Why?", text: "3000 prize pool, mentorship, internships, certificates, and real-world impact." },
               { emoji: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/></svg>, title: "Where?", text: "Penang, Malaysia & Asia. Submission in English (no penalty for second-language learners)." },
@@ -923,7 +923,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             {[
-              { q: "Who can join?", a: "Any student aged 13–22, especially from Malaysia's B40 communities." },
+              { q: "Who can join?", a: "Any student aged 13–22." },
               { q: "What is the submission language?", a: "English (no penalty for second-language learners)." },
               { q: "How do I register?", a: "Click the Register Now button to access our registration form." },
               { q: "What are the prizes?", a: "3000 prize pool, mentorship, internships, and certificates." },

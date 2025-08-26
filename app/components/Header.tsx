@@ -62,11 +62,11 @@ const Header = () => {
         <Link href="/" className="flex items-center transition-all duration-300 hover:opacity-80 min-w-0 flex-shrink-0">
           {!imageError ? (
             <Image 
-              src="/bee-scale-logo.png" 
+              src="/logos/bee-scale-logo.png" 
               alt="Bee Scale Logo" 
-              width={48}
-              height={48}
-              className="h-12 w-auto"
+              width={64}
+              height={64}
+              className="h-16 w-auto"
               onError={() => setImageError(true)}
             />
           ) : (
