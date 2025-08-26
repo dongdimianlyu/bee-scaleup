@@ -47,7 +47,7 @@ export default function JudgesPage() {
             className="text-gray-300 text-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            We're assembling an exceptional panel of judges from leading companies and institutions. 
+            We&apos;re assembling an exceptional panel of judges from leading companies and institutions. 
             Stay tuned for announcements about our distinguished evaluation panel.
           </p>
         </motion.div>

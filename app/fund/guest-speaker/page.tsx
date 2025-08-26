@@ -43,7 +43,7 @@ export default function GuestSpeakerPage() {
             className="text-gray-300 text-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            We're curating an exceptional lineup of guest speakers who will provide valuable insights into entrepreneurship, innovation, and industry trends.
+            We&apos;re curating an exceptional lineup of guest speakers who will provide valuable insights into entrepreneurship, innovation, and industry trends.
           </p>
         </motion.div>
       </div>

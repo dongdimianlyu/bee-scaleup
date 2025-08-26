@@ -22,7 +22,7 @@ export default function Case2025Page() {
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            Explore the 2025 business case challenge that will test participants' analytical skills, strategic thinking, and innovative solutions.
+            Explore the 2025 business case challenge that will test participants&apos; analytical skills, strategic thinking, and innovative solutions.
           </p>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function Case2025Page() {
             className="text-gray-300 text-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            We're preparing an exciting and challenging business case for 2025 that will push participants to think critically and develop innovative solutions. Stay tuned for the full case details and submission guidelines.
+            We&apos;re preparing an exciting and challenging business case for 2025 that will push participants to think critically and develop innovative solutions. Stay tuned for the full case details and submission guidelines.
           </p>
         </motion.div>
       </div>

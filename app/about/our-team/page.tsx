@@ -43,7 +43,7 @@ export default function OurTeamPage() {
             className="text-gray-300 text-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            We're excited to introduce you to our amazing team members. 
+            We&apos;re excited to introduce you to our amazing team members. 
             Stay tuned for detailed profiles of the people making BeeScaleUp possible.
           </p>
         </motion.div>

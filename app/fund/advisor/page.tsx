@@ -43,7 +43,7 @@ export default function AdvisorPage() {
             className="text-gray-300 text-lg"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            We're assembling a world-class advisory board to provide strategic guidance and mentorship to both our organization and participants.
+            We&apos;re assembling a world-class advisory board to provide strategic guidance and mentorship to both our organization and participants.
           </p>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/context/AuthContext';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -20,22 +20,7 @@ const JudgeDashboard = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const incompleteTasks = tasks.filter(task => !task.completed);
-  const completedTasks = tasks.filter(task => task.completed);
-  const progress = tasks.length > 0 ? (completedTasks.length / tasks.length) * 100 : 0;
-
-  useEffect(() => {
-    if (!authLoading && (!user || user.role !== 'judge')) {
-      router.push('/');
-      return;
-    }
-
-    if (user) {
-      fetchTasks();
-    }
-  }, [user, authLoading, router]);
-
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     if (!user) return;
     
     try {
@@ -50,7 +35,22 @@ const JudgeDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
+
+  const incompleteTasks = tasks.filter(task => !task.completed);
+  const completedTasks = tasks.filter(task => task.completed);
+  const progress = tasks.length > 0 ? (completedTasks.length / tasks.length) * 100 : 0;
+
+  useEffect(() => {
+    if (!authLoading && (!user || user.role !== 'judge')) {
+      router.push('/');
+      return;
+    }
+
+    if (user) {
+      fetchTasks();
+    }
+  }, [user, authLoading, router, fetchTasks]);
 
   const toggleTask = async (taskId: string) => {
     if (!user) return;
