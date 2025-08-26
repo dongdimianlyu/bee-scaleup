@@ -32,7 +32,11 @@ export default function JudgesPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass rounded-3xl p-8 border border-white/20 shadow-2xl text-center"
         >
-          <div className="text-6xl mb-6">👨‍⚖️</div>
+          <div className="text-6xl mb-6">
+            <svg className="w-16 h-16 mx-auto text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
           <h2 
             className="text-2xl font-bold text-white mb-4"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}

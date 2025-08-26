@@ -125,7 +125,7 @@ const Header = () => {
                           ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' 
                           : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
                       }`}>
-                        {user?.role === 'judge' ? '👨‍⚖️ Judge' : '🎓 Participant'}
+                        {user?.role === 'judge' ? 'Judge' : 'Participant'}
                       </span>
                     </div>
                   </div>
@@ -273,7 +273,7 @@ const Header = () => {
                       ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' 
                       : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
                   }`}>
-                    {user?.role === 'judge' ? '👨‍⚖️ Judge' : '🎓 Participant'}
+                    {user?.role === 'judge' ? 'Judge' : 'Participant'}
                   </span>
                 </div>
                 

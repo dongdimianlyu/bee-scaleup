@@ -5,6 +5,8 @@ import {
   User as FirebaseUser,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut as firebaseSignOut,
   onAuthStateChanged
 } from 'firebase/auth';
@@ -24,6 +26,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
+  signInWithGoogle: (role?: UserRole) => Promise<void>;
   signUp: (email: string, password: string, role: UserRole) => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -61,6 +64,46 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       console.error('Error signing in:', error);
+      throw error;
+    }
+  };
+
+  const signInWithGoogle = async (role: UserRole = 'participant'): Promise<void> => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      
+      // Check if user already exists in Firestore
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
+      
+      if (!userDoc.exists()) {
+        // If new user, create their profile with the specified role
+        await setDoc(doc(db, 'users', user.uid), {
+          email: user.email,
+          displayName: user.displayName,
+          role: role,
+          createdAt: new Date().toISOString(),
+          // Initialize role-specific data
+          ...(role === 'judge' && {
+            tasks: [
+              { id: 'verify-credentials', title: 'Verify Your Credentials', completed: false },
+              { id: 'review-guidelines', title: 'Review Judging Guidelines', completed: false },
+              { id: 'complete-training', title: 'Complete Judge Training Module', completed: false }
+            ]
+          }),
+          ...(role === 'participant' && {
+            tasks: [
+              { id: 'register', title: 'Register for Competition', completed: false },
+              { id: 'complete-profile', title: 'Complete Your Profile', completed: false },
+              { id: 'join-team', title: 'Join or Create a Team', completed: false },
+              { id: 'review-competition', title: 'Review Competition Guidelines', completed: false }
+            ]
+          })
+        });
+      }
+    } catch (error) {
+      console.error('Error signing in with Google:', error);
       throw error;
     }
   };
@@ -111,6 +154,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     user,
     loading,
     signIn,
+    signInWithGoogle,
     signUp,
     signOut
   };

@@ -308,7 +308,7 @@ const FundPage = () => {
               {
                 title: "Innovation Pipeline",
                 description: "Discover fresh solutions and innovative approaches to business challenges",
-                icon: "💡",
+                icon: "lightbulb",
                 color: "from-yellow-500/20 to-orange-500/20"
               }
             ].map((reason, index) => (
@@ -323,7 +323,15 @@ const FundPage = () => {
                   <motion.div
                     className={`w-16 h-16 bg-gradient-to-r ${reason.color} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <span className="text-3xl">{reason.icon}</span>
+                    <span className="text-3xl">
+                      {reason.icon === 'lightbulb' ? (
+                        <svg className="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z"/>
+                        </svg>
+                      ) : (
+                        reason.icon
+                      )}
+                    </span>
                   </motion.div>
                   <h3 className="text-xl font-bold mb-4 text-slate-900" style={{ fontFamily: 'Exo 2, sans-serif' }}>
                     {reason.title}
