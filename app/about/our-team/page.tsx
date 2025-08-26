@@ -172,7 +172,7 @@ export default function OurTeamPage() {
                       <h4 className="text-emerald-400 font-semibold text-sm">Why BEE?</h4>
                     </div>
                     <p className="text-gray-300 text-xs leading-relaxed">
-                      I joined the BEE "SCALE-UP" team because I'm passionate about business, leadership, and making a real impact. I wanted to help empower students like me to solve real problems, support local communities, and bridge the education gap while growing my own skills in communication, strategy, and innovation.
+                      I joined the BEE &ldquo;SCALE-UP&rdquo; team because I&apos;m passionate about business, leadership, and making a real impact. I wanted to help empower students like me to solve real problems, support local communities, and bridge the education gap while growing my own skills in communication, strategy, and innovation.
                     </p>
                   </div>
                   
@@ -238,7 +238,7 @@ export default function OurTeamPage() {
                       <h4 className="text-purple-400 font-semibold text-sm">Why BEE?</h4>
                     </div>
                     <p className="text-gray-300 text-xs leading-relaxed">
-                      Imagine a world where your achievement and success are determined not by chance, but by merit. I joined because we're nowhere near that world yet. The brightest minds often go unrecognized while mediocrity advances through proximity to power. This competition strips away everything but pure capability, where ideas fight on equal ground and brilliance wins regardless of birthplace.
+                      Imagine a world where your achievement and success are determined not by chance, but by merit. I joined because we&apos;re nowhere near that world yet. The brightest minds often go unrecognized while mediocrity advances through proximity to power. This competition strips away everything but pure capability, where ideas fight on equal ground and brilliance wins regardless of birthplace.
                     </p>
                   </div>
                   
@@ -252,7 +252,7 @@ export default function OurTeamPage() {
                       <h4 className="text-purple-400 font-semibold text-sm">Hobbies</h4>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                      {['Literature', 'Startups', 'AI Development', 'Future Tech'].map((hobby, index) => (
+                      {['Startups', 'ML/RL', '&ldquo;Iterations&rdquo;', 'Applied AI'].map((hobby, index) => (
                         <span key={index} className="bg-purple-500/10 text-purple-300 px-2 py-1 rounded text-xs border border-purple-400/20">
                           {hobby}
                         </span>
@@ -440,7 +440,7 @@ export default function OurTeamPage() {
                       <h4 className="text-indigo-400 font-semibold text-sm">Hobbies</h4>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                      {['Soccer', 'Rubik\'s Cubes', 'Problem Solving'].map((hobby, index) => (
+                      {['Soccer', 'Rubik&apos;s Cubes', 'Problem Solving'].map((hobby, index) => (
                         <span key={index} className="bg-indigo-500/10 text-indigo-300 px-2 py-1 rounded text-xs border border-indigo-400/20">
                           {hobby}
                         </span>
