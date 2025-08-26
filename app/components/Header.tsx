@@ -64,9 +64,9 @@ const Header = () => {
             <Image 
               src="/logos/bee-scale-logo.png" 
               alt="Bee Scale Logo" 
-              width={64}
-              height={64}
-              className="h-16 w-auto"
+              width={96}
+              height={96}
+              className="h-24 w-auto"
               onError={() => setImageError(true)}
             />
           ) : (
