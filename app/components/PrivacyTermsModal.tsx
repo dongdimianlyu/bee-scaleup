@@ -29,34 +29,34 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, onClose }
         >
           {/* Header */}
           <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl">
-            <h2 className="text-2xl font-bold text-gray-800" style={{ fontFamily: 'Exo 2, sans-serif' }}>
+            <h2 className="text-2xl font-bold text-black !text-black" style={{ fontFamily: 'Exo 2, sans-serif' }}>
               BEE SCALE-UP Competition Privacy Terms & Policy
             </h2>
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
-              <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
           {/* Content */}
-          <div className="p-6 space-y-6 text-gray-700">
+          <div className="p-6 space-y-6 text-black">
             <div className="border-b border-gray-200 pb-4">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">—General</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-2">—General</h3>
             </div>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">1. Introduction</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">1. Introduction</h3>
               <p className="leading-relaxed">
                 Welcome to the BEE SCALE-UP Competition. We value your privacy and are committed to protecting your personal information. This Privacy Terms & Policy outlines how we collect, use, and safeguard your data during your participation in our competition.
               </p>
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">2. How We Use Your Information</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">2. How We Use Your Information</h3>
               <p className="leading-relaxed mb-3">
                 The information you provide is used for the following purposes:
               </p>
@@ -70,18 +70,18 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, onClose }
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">3. Specific Legal Terms & Agreement by parties</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">3. Specific Legal Terms & Agreement by parties</h3>
               <ul className="space-y-2">
-                <li><strong>Participants:</strong> <a href="https://docs.google.com/document/d/e/2PACX-1vRgmlK93qdiFly5K_6dH7mJvbokNiraEyoA2-JOgc8XMsv8ZTJSZufBQpq9-IlXwMbjru6jlSk1_cNg/pub" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://docs.google.com/document/d/e/2PACX-1vRgmlK93qdiFly5K_6dH7mJvbokNiraEyoA2-JOgc8XMsv8ZTJSZufBQpq9-IlXwMbjru6jlSk1_cNg/pub</a></li>
-                <li><strong>Team Search:</strong> <a href="https://docs.google.com/document/d/e/2PACX-1vQttCpEF6hBm4yRaz3i8Yyg47rCl_dwM3XOHD2UZCzBKU-3vffgsN-W8JdMCSbpRqnIF3MF7Lr12haW/pub" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://docs.google.com/document/d/e/2PACX-1vQttCpEF6hBm4yRaz3i8Yyg47rCl_dwM3XOHD2UZCzBKU-3vffgsN-W8JdMCSbpRqnIF3MF7Lr12haW/pub</a></li>
-                <li><strong>Guest Speakers:</strong> <a href="https://docs.google.com/document/d/1ZriGQk4HG_YH609xbYZvGDcFsAm099scvDhp2W3V20Y/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://docs.google.com/document/d/1ZriGQk4HG_YH609xbYZvGDcFsAm099scvDhp2W3V20Y/edit?tab=t.0</a></li>
-                <li><strong>Mentor Pair:</strong> <a href="https://docs.google.com/document/d/1WOr5ArmNzwKP_dnqFEC1rDWwaHpDLSaRtMEDNGsvdck/edit?tab=t.0#heading=h.w8guxrf1fu1f" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://docs.google.com/document/d/1WOr5ArmNzwKP_dnqFEC1rDWwaHpDLSaRtMEDNGsvdck/edit?tab=t.0#heading=h.w8guxrf1fu1f</a></li>
-                <li><strong>Judges:</strong> <a href="https://docs.google.com/document/d/1ZQ1c0qxY6fMB461zxdVDtrHIASTfZG2UEagudcSs3PA/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://docs.google.com/document/d/1ZQ1c0qxY6fMB461zxdVDtrHIASTfZG2UEagudcSs3PA/edit?tab=t.0</a></li>
+                <li><strong>Participants:</strong> <a href="https://docs.google.com/document/d/e/2PACX-1vRgmlK93qdiFly5K_6dH7mJvbokNiraEyoA2-JOgc8XMsv8ZTJSZufBQpq9-IlXwMbjru6jlSk1_cNg/pub" target="_blank" rel="noopener noreferrer" className="text-black underline hover:text-black">https://docs.google.com/document/d/e/2PACX-1vRgmlK93qdiFly5K_6dH7mJvbokNiraEyoA2-JOgc8XMsv8ZTJSZufBQpq9-IlXwMbjru6jlSk1_cNg/pub</a></li>
+                <li><strong>Team Search:</strong> <a href="https://docs.google.com/document/d/e/2PACX-1vQttCpEF6hBm4yRaz3i8Yyg47rCl_dwM3XOHD2UZCzBKU-3vffgsN-W8JdMCSbpRqnIF3MF7Lr12haW/pub" target="_blank" rel="noopener noreferrer" className="text-black underline hover:text-black">https://docs.google.com/document/d/e/2PACX-1vQttCpEF6hBm4yRaz3i8Yyg47rCl_dwM3XOHD2UZCzBKU-3vffgsN-W8JdMCSbpRqnIF3MF7Lr12haW/pub</a></li>
+                <li><strong>Guest Speakers:</strong> <a href="https://docs.google.com/document/d/1ZriGQk4HG_YH609xbYZvGDcFsAm099scvDhp2W3V20Y/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-black underline hover:text-black">https://docs.google.com/document/d/1ZriGQk4HG_YH609xbYZvGDcFsAm099scvDhp2W3V20Y/edit?tab=t.0</a></li>
+                <li><strong>Mentor Pair:</strong> <a href="https://docs.google.com/document/d/1WOr5ArmNzwKP_dnqFEC1rDWwaHpDLSaRtMEDNGsvdck/edit?tab=t.0#heading=h.w8guxrf1fu1f" target="_blank" rel="noopener noreferrer" className="text-black underline hover:text-black">https://docs.google.com/document/d/1WOr5ArmNzwKP_dnqFEC1rDWwaHpDLSaRtMEDNGsvdck/edit?tab=t.0#heading=h.w8guxrf1fu1f</a></li>
+                <li><strong>Judges:</strong> <a href="https://docs.google.com/document/d/1ZQ1c0qxY6fMB461zxdVDtrHIASTfZG2UEagudcSs3PA/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-black underline hover:text-black">https://docs.google.com/document/d/1ZQ1c0qxY6fMB461zxdVDtrHIASTfZG2UEagudcSs3PA/edit?tab=t.0</a></li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">4. Data Sharing and Disclosure</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">4. Data Sharing and Disclosure</h3>
               <p className="leading-relaxed mb-3">
                 We respect your privacy and do not share your personal information with third parties without your consent, except in the following circumstances:
               </p>
@@ -92,21 +92,21 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, onClose }
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">5. Data Security</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">5. Data Security</h3>
               <p className="leading-relaxed">
                 We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, please be aware that no method of transmission over the internet is 100% secure.
               </p>
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">6. Data Retention</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">6. Data Retention</h3>
               <p className="leading-relaxed">
                 Your personal information will be retained for as long as necessary to fulfill the purposes outlined in this policy or as required by law. Once your data is no longer needed, it will be securely deleted.
               </p>
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">7. Your Rights</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">7. Your Rights</h3>
               <p className="leading-relaxed mb-3">
                 Depending on your jurisdiction, you may have the following rights regarding your personal information:
               </p>
@@ -122,14 +122,14 @@ const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, onClose }
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">8. Changes to This Policy</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">8. Changes to This Policy</h3>
               <p className="leading-relaxed">
                 We may update this Privacy Terms & Policy periodically to reflect changes in our practices or legal requirements. Any updates will be posted on this page with an updated effective date.
               </p>
             </section>
 
             <section>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">9. Contact Us</h3>
+              <h3 className="text-lg font-semibold text-black !text-black mb-3">9. Contact Us</h3>
               <p className="leading-relaxed mb-3">
                 If you have any questions or concerns about this policy or our data practices, please contact us at:
               </p>

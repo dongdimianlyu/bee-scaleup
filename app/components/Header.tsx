@@ -45,6 +45,7 @@ const Header = () => {
     },
     { href: '/2025-case', label: '2025 Case' },
     { href: '/find-team', label: 'Find Team' },
+    { href: '/pdf-submit', label: 'PDF Submit' },
   ];
 
   const handleSignOut = async () => {

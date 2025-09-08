@@ -237,42 +237,42 @@ const Home = () => {
                 </h3>
                 <div className="flex justify-center items-center space-x-8">
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/columbia.png" 
                       alt="Columbia Business School" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/capisa.png" 
                       alt="Capisa" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/jpm.png" 
                       alt="JPMorgan Chase" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                 </div>
@@ -291,68 +291,68 @@ const Home = () => {
                 </h3>
                 <div className="flex justify-center items-center space-x-6">
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/met.png" 
                       alt="Berkeley M.E.T" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/ucl.png" 
                       alt="UCL" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/hkust.png" 
                       alt="HKUST" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/usc.png" 
                       alt="USC" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/boston.png" 
                       alt="Boston College" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                 </div>
@@ -371,29 +371,29 @@ const Home = () => {
                 </h3>
                 <div className="flex justify-center items-center space-x-8">
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/pydc.png" 
                       alt="PYDC" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/skt.png" 
                       alt="SKT" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                 </div>
@@ -415,42 +415,42 @@ const Home = () => {
                 </h3>
                 <div className="flex justify-center items-center space-x-8">
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/uchicago.png" 
                       alt="University of Chicago" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/john.png" 
                       alt="Johns Hopkins University" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                   <motion.div 
-                    className="bg-white rounded-lg p-4 w-28 h-20 flex items-center justify-center shadow-lg"
+                    className="bg-white rounded-lg p-2 sm:p-4 w-20 h-14 sm:w-28 sm:h-20 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image 
                       src="/logos/lse.png" 
                       alt="LSE" 
-                      width={100} 
-                      height={60}
-                      className="object-contain w-full h-full"
+                      width={120} 
+                      height={72}
+                      className="object-contain w-16 h-10 sm:w-full sm:h-full"
                     />
                   </motion.div>
                 </div>
