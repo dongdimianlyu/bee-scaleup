@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import formidable from 'formidable';
 import { promises as fs } from 'fs';
+import { IncomingMessage } from 'http';
 
 export const config = {
   api: {
@@ -12,7 +13,7 @@ export const config = {
 async function parseForm(req: NextRequest): Promise<{ file: formidable.File | null }> {
   return new Promise((resolve, reject) => {
     const form = formidable({ multiples: false, maxFileSize: 10 * 1024 * 1024 });
-    form.parse(req as any, (err, fields, files) => {
+    form.parse(req as unknown as IncomingMessage, (err, fields, files) => {
       if (err) return reject(err);
       const file = files.pdf as formidable.File | undefined;
       resolve({ file: file || null });
@@ -52,8 +53,12 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ message: 'PDF submitted and emailed successfully!' });
-  } catch (error: any) {
-    console.error(error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error(error);
+    }
     return NextResponse.json({ error: 'Failed to process submission.' }, { status: 500 });
   }
 }

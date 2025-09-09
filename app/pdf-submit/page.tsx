@@ -69,7 +69,7 @@ export default function PdfSubmitPage() {
       } else {
         setStatus(data.error || "Submission failed.");
       }
-    } catch (err) {
+    } catch {
       setStatus("An error occurred. Please try again.");
     } finally {
       setLoading(false);

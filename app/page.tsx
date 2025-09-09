@@ -25,6 +25,15 @@ const Home = () => {
     <div className="bg-[#0a0a0a] min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden particles-bg">
+        {/* Hero Background Image */}
+        <Image 
+          src="/WYF%20PItch.jpg" 
+          alt="BEE SCALE-UP Hero Background" 
+          fill 
+          priority
+          className="object-cover w-full h-full absolute inset-0 z-0 pointer-events-none select-none opacity-60" 
+          sizes="100vw"
+        />
         {/* 3D Grid Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
